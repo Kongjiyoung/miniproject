@@ -9,12 +9,13 @@ public class OfferRequest {
     @Data
     public class SaveDTO {
         private Integer id;
-        private Integer resume_id;
-        private Integer post_id;
-        private Integer post_writer_id;
-        private Integer resume_writer_id;
+        private Integer resumeId;
+        private Integer postId;
+        private Integer postWriterId;
+        private Integer resumeWriterId;
         private String title;
         private Date created_at;
+        private String company_name;
     }
 
     @Data
