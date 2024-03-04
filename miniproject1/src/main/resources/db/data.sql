@@ -49,7 +49,8 @@ values (2, 'humanscape@nate.com', '1234', 'humanscape_HR', '010-1234-5678', '휴
         '123-456-78910', '사진URL', now());
 insert into user_tb(role, email, password, username, tel, company_name, company_address, company_num, profile,
                     created_at)
-values ('company', 'soomgo@soomgo.com', '1234', 'soomgo_HR', '010-1234-5678', '브레이브모바일 (숨고)', '서울 강남구 테헤란로 415 L7 강남타워 5층',
+values ('company', 'soomgo@soomgo.com', '1234', 'soomgo_HR', '010-1234-5678', '브레이브모바일 (숨고)',
+        '서울 강남구 테헤란로 415 L7 강남타워 5층',
         '123-456-78910', '사진URL', now());
 insert into user_tb(role, email, password, username, tel, company_name, company_address, company_num, profile,
                     created_at)
@@ -68,12 +69,17 @@ values (2, 'wadiz@wadiz.com', '1234', 'wadiz_HR', '010-1234-5678 ', '와디즈',
 --이력서정보 입력
 insert into resume_tb(person_id, title, profile, username, birth, tel, address, email, portfolio, introduce, career,
                       simple_introduce, created_at)
-values (1, '열심히 일하겠습니다', '/images/person01.png', '공지영', '19991012', '010-1234-5678', '진해구', 'ssar@nate.com', 'http://qmfmqfqmf',
-        '화이팅', '1개월근무', '화이팅하겠습니다', now());
+values (1, '백엔드 개발자', '/images/person01.png', '공지영', '19991012', '010-1234-5678', '창원시 진해구', 'ssar@nate.com',
+        'http://qmfmqfqmf',
+        '복잡한 문제를 구조화하고 추상화해 단순하게 풀어내는 것을 좋아합니다.
+꾸준한 공부를 통해 문제를 오랫동안 끊임없이 개선하는 것을 좋아합니다.
+어려운 지식을 저만의 언어로 쉽게 풀어내는 것을 좋아합니다. 많은 사람에게 지식을 전파할 수 있는 사람이 되기를 원합니다.', '1년 근무', '꾸준히 공부하는 개발자입니다', now());
 insert into resume_tb(person_id, title, profile, username, birth, tel, address, email, portfolio, introduce, career,
                       simple_introduce, created_at)
-values (1, '성실하게 일하겠습니다', '/images/person02.png', '장현정', '19500524', '010-1222-2222', '부산진구', 'love@nate.com', 'http://dffdfddf',
-        '화이팅', '5일근무', '열심히하겠습니다', now());
+values (1, '백엔드 개발자, 장현정', '/images/person02.png', '장현정', '19900524', '010-1222-2222', '부산시 부산진구', 'love@nate.com',
+        'http://dffdfddf',
+        '문제를 찾아 해결하는 것에 즐거움을 느낍니다. best practice를 찾아 적용하려고 노력합니다.
+프로덕션 서비스를 설계, 개발, 운영한 경험이 있으며 확장성과 유지 보수성이 높은 구조와 패턴을 위해 언제나 고민하고 있습니다.', '3년 근무', '좋은 개발자가 되려고 노력하고 있습니다', now());
 
 
 --채용공고 입력
@@ -113,12 +119,11 @@ values ('C', 2, 1);
 
 --공고에서
 insert into skill_tb(skill, post_id, role)
-values('JAVA', 1, 1);
+values ('JAVA', 1, 1);
 insert into skill_tb(skill, post_id, role)
-values('JAVA', 2, 1);
+values ('JAVA', 2, 1);
 insert into skill_tb(skill, post_id, role)
-values('JAVA', 3, 1);
-
+values ('JAVA', 3, 1);
 
 
 --지원
@@ -134,7 +139,6 @@ INSERT INTO offer_tb(resume_id, post_id, post_writer_id, resume_writer_id, title
 VALUES (1, 1, 2, 2, '우리회사와', now());
 INSERT INTO offer_tb(resume_id, post_id, post_writer_id, resume_writer_id, title, created_at)
 VALUES (1, 1, 2, 3, '돈 많이줄게', now());
-
 
 
 
