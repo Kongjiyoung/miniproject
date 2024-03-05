@@ -21,5 +21,5 @@ public class User {
     private String companyAddress;
     private String companyNum;
     private String profile;
-    private Timestamp created_at;
+    private Timestamp createdAt;
 }
