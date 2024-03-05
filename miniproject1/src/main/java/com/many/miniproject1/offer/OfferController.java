@@ -22,11 +22,15 @@ public class OfferController {
     }
     // person의 offers 관리
     @GetMapping("/person/offerEmails")
-    public String personPostE(HttpServletRequest request) {
-        List<Offer> offer =  offerRepository.findAll();
-        System.out.println(offer);
+    public String personPostE(HttpServletRequest request, Integer id) {
+        // 출력해보기
+//        List<Offer> offer =  offerRepository.findAll();
+//        System.out.println(offer);
+
+        Offer companyName = offerRepository.findCompanynameById(id);
         List<Offer> offerList = offerRepository.findAll();
         request.setAttribute("offerList", offerList);
+        request.setAttribute("companyName", companyName);
 
         return "person/offerEmails";
     }
