@@ -41,7 +41,7 @@
                 <div>
                     <!-- MIME 타입: multipart/form-data 파일이나 이미지 업로드 시 사용
                      -->
-                    <form action="/company/info/update" method="post" id="companyUpdate" enctype="multipart/form-data">
+                    <form action="/company/info/{{id}}/update" method="post" id="companyUpdate" enctype="multipart/form-data">
                         <div class="container w-50 mt-5 text ">
                             <div class="input-group mb-3">
                                 <input type="file" class="form-control" value="" id="" name="">
@@ -61,7 +61,7 @@
 
                             <div class="input-group mb-3">
                                 <span class="input-group-text justify-content-center hs_span_size init_color hs_span">설립년도</span>
-                                <input type="date" class="form-control" id="1999. 06. 02." name="cyear">
+                                <input type="date" class="form-control" id="1999. 06. 02." name="year">
                             </div>
 
                             <div class="input-group mb-3">
@@ -93,7 +93,7 @@
 
                             <div class="input-group mb-3">
                                 <span class="input-group-text  justify-content-center hs_span_size init_color">비밀번호</span>
-                                <input type="password" class="form-control" value="1234" id="" name="">
+                                <input type="password" class="form-control" value="" id="" name="">
                             </div>
                             <div class="input-group mb-3">
                                 <span class="input-group-text  justify-content-center hs_span_size init_color">비밀번호
@@ -110,7 +110,7 @@
                                     </button>
                                 </div>
                                 <div class="d-flex justify-content-center" style="width: 100%">
-                                    <a href="/company/info" class="btn btn-outline-danger mb-3"
+                                    <a href="/company/info/{{id}}" class="btn btn-outline-danger mb-3"
                                        style="width: 100%">취소</a>
                                 </div>
                             </div>

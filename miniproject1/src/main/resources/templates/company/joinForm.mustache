@@ -6,7 +6,7 @@
     </div>
     <div class="d-flex justify-content-center">
         <div class="border rounded p-3 m-3 shadow" style="width: 300px;">
-            <form action="/company/join" method="post">
+            <form action="/company/join" method="post" enctype="application/x-www-form-urlencoded">
                 <div class="form-group form-floating m-3 mx-auto">
                     <!-- id="" label for="" 안의 값이 같아야 연동됨 -->
                     <!-- TODO: placeholder를 넣지 않는 방식 -->
@@ -41,7 +41,7 @@
                 <!-- 비밀번호 체크 확인 알림창 -->
                 <div id="passwordCheckAlert"> </div>
                 <div class="d-flex justify-content-center">
-                    <button type="submit" href="#" class="btn btn-outline-primary mb-3 mt-4" style="width: 100%">가입하기</button>
+                    <button type="submit" href="#" class="btn btn-outline-success mb-3" style="width: 100%">가입하기</button>
                 </div>
             </form>
             <div class="text-center sj_login_join">

@@ -19,12 +19,12 @@ public class UserRepository {
         return query.getResultList();
     }
 
-    public User findById(int id) {
+    public UserResponse.DetailDTO findById(int id) {
         Query query = em.createNativeQuery("select * from user_tb where id=?", User.class);
         query.setParameter(1, id);
 
         try {
-            User user = (User) query.getSingleResult();
+            UserResponse.DetailDTO user = (UserResponse.DetailDTO) query.getSingleResult();
             return user;
         } catch (Exception e) {
             return null;
@@ -53,7 +53,7 @@ public class UserRepository {
 
     @Transactional
     public void companyUpdate(UserRequest.UpdateDTO requestDTO, int id) {
-        Query query = em.createNativeQuery("update user_tb set where id = ?");
+        Query query = em.createNativeQuery("update user_tb set company_name, username, company_num, company_address, comwhere id = ?");
         query.setParameter(1, id);
 
         query.executeUpdate();

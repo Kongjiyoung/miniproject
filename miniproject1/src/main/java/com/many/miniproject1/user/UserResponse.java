@@ -6,6 +6,8 @@ public class UserResponse {
     @Data
     public static class DetailDTO {
         private Integer id;
+        private Integer personId;
+        private Integer companyId;
         private String role;
         private String email;
         private String password;
