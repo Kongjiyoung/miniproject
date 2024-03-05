@@ -17,8 +17,7 @@ public class PostRequest {
         private String workEndTime;
         private String deadline;
         private String task;
-        private MultipartFile profile;
-        // private String skill;
+        private String profile;
         private String workingArea;
     }
 
@@ -35,7 +34,7 @@ public class PostRequest {
         private String workEndTime;
         private String deadline;
         private String task;
-        private MultipartFile profile;
+        private String profile;
         private String workingArea;
     }
 }

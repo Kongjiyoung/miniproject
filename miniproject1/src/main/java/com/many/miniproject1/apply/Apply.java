@@ -17,5 +17,5 @@ public class Apply {
     private Integer postWriterId;
     private Integer resumeWriterId;
     private String isPass;
-    private Timestamp created_at;
+    private Timestamp createdAt;
 }

@@ -16,6 +16,7 @@ public class OfferRequest {
         private String title;
         private Date created_at;
         private String company_name;
+
     }
 
     @Data

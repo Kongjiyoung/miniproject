@@ -17,8 +17,8 @@
             </div>
             <!--            <ul class="image-preview rounded mx-auto d-block rounded-4 mt-5 my-3 w-25"></ul>-->
             <!--            <input type="file" class="real-upload mx-auto d-block mt-5 my-3 w-25" accept="image/*" required multiple>-->
-            <form action="/company/post/save" method="post" enctype="multipart/form-data">
-                <label type="hidden" for="companyId"></label>
+            <form action="/company/post/save" method="post">
+                <!-- enctype="multipart/form-data" -->
                 <input type="hidden" id="companyId">
                 <div class="px-5 mt-5">
                     <!-- 이미지 업로드 시작 -->
@@ -30,28 +30,28 @@
                         </div>
                         <input class="mb-4" type="file" id="profile" name="profile" accept="image/*">
 
-                        <script>
-                            $('#profile').change(function () {
-                                let input = this;
-                                if (input.files && input.files[0]) {
-                                    let reader = new FileReader();
+                        <!--                        <script>-->
+                        <!--                            $('#profile').change(function () {-->
+                        <!--                                let input = this;-->
+                        <!--                                if (input.files && input.files[0]) {-->
+                        <!--                                    let reader = new FileReader();-->
 
-                                    reader.onload = function (e) {
-                                        $('#profilePreview').html('<img src="' + e.target.result + '" style="max-width: 100%;">');
-                                        // let fileName = input.files[0].name;
-                                        // $('#profile').val(fileName);
-                                        // console.log(fileName);
-                                    };
+                        <!--                                    reader.onload = function (e) {-->
+                        <!--                                        $('#profilePreview').html('<img src="' + e.target.result + '" style="max-width: 100%;">');-->
+                        <!--                                        // let fileName = input.files[0].name;-->
+                        <!--                                        // $('#profile').val(fileName);-->
+                        <!--                                        // console.log(fileName);-->
+                        <!--                                    };-->
 
-                                    reader.readAsDataURL(input.files[0]);
+                        <!--                                    reader.readAsDataURL(input.files[0]);-->
 
-                                    // 파일명 출력
-                                    let fileName = input.files[0].name;
-                                    $('#profile').val(fileName);
-                                    console.log(fileName);
-                                }
-                            });
-                        </script>
+                        <!--                                    // 파일명 출력-->
+                        <!--                                    let fileName = input.files[0].name;-->
+                        <!--                                    $('#profile').val(fileName);-->
+                        <!--                                    console.log(fileName);-->
+                        <!--                                }-->
+                        <!--                            });-->
+                        <!--                        </script>-->
                         <!-- 이미지 업로드 끝 -->
                     </div>
                     <label for="companyName"><b>공고명</b></label>
@@ -201,11 +201,11 @@
     </div>
     <!-- list-group( 오른쪽 바로가기) 시작 -->
     <div class="list-group mx-2">
-        <a href="/view/company/info.html" class="list-group-item shadow " style="width: 180px;">회사 정보 관리</a>
-        <a href="/view/company/posts.html" class="list-group-item shadow">공고 관리</a>
-        <a href="/view/company/getResume.html" class="list-group-item hs_list_effect shadow">받은 이력서</a>
-        <a href="/view/company/scrap.html" class="list-group-item shadow">스크랩한 이력서</a>
-        <a href="/view/company/offers.html" class="list-group-item shadow">제안한 이력서</a>
+        <a href="/company/info" class="list-group-item shadow " style="width: 180px;">회사 정보 관리</a>
+        <a href="/company/post" class="list-group-item shadow">공고 관리</a>
+        <a href="/company/resume" class="list-group-item hs_list_effect shadow">받은 이력서</a>
+        <a href="/company/scrap" class="list-group-item shadow">스크랩한 이력서</a>
+        <a href="/company/offers" class="list-group-item shadow">제안한 이력서</a>
     </div>
     <!-- list-group( 오른쪽 바로가기) 끝 -->
 </div>

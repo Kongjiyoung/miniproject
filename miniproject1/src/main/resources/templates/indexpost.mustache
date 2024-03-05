@@ -49,43 +49,85 @@
     <div class="search-bottom d-flex justify-content-around align-items-center">
         <div style="width: 30%;">
             <form class=" company search d-flex " role="search">
-                <input class="form-control me-2" type="search" placeholder="기술 스택" aria-label="Search" />
+                <input class="form-control me-2" type="search" placeholder="기술 스택" aria-label="Search"/>
                 <button class="btn btn-outline-success" type="submit">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </button>
             </form>
         </div>
         <div class="row row-cols-auto gap-3 justify-content-center my-3" style="width: 70%;">
-            <input type="checkbox" class="btn-check" id="btn1" value="java" name="skills" autocomplete="off" />
+            <input type="checkbox" class="btn-check" id="btn1" value="java" name="skills" autocomplete="off"/>
             <label class="btn btn-outline-primary" for="btn1">java</label>
-            <input type="checkbox" class="btn-check" id="btn2" value="spring" name="skills" autocomplete="off" />
+            <input type="checkbox" class="btn-check" id="btn2" value="spring" name="skills" autocomplete="off"/>
             <label class="btn btn-outline-primary" for="btn2">spring</label>
-            <input type="checkbox" class="btn-check" id="btn3" value="html" name="skills" autocomplete="off" />
+            <input type="checkbox" class="btn-check" id="btn3" value="html" name="skills" autocomplete="off"/>
             <label class="btn btn-outline-primary" for="btn3">html</label>
-            <input type="checkbox" class="btn-check" id="btn4" value="javascript" name="skills" autocomplete="off" />
+            <input type="checkbox" class="btn-check" id="btn4" value="javascript" name="skills" autocomplete="off"/>
             <label class="btn btn-outline-primary" for="btn4">javascript</label>
-            <input type="checkbox" class="btn-check" id="btn5" value="sql" name="skills" autocomplete="off" />
+            <input type="checkbox" class="btn-check" id="btn5" value="sql" name="skills" autocomplete="off"/>
             <label class="btn btn-outline-primary" for="btn5">sql</label>
-            <input type="checkbox" class="btn-check" id="btn6" value="android" name="skills" autocomplete="off" />
+            <input type="checkbox" class="btn-check" id="btn6" value="android" name="skills" autocomplete="off"/>
             <label class="btn btn-outline-primary" for="btn6">android</label>
-            <input type="checkbox" class="btn-check" id="btn7" value="React" name="skills" autocomplete="off" />
+            <input type="checkbox" class="btn-check" id="btn7" value="React" name="skills" autocomplete="off"/>
             <label class="btn btn-outline-primary" for="btn7">React</label>
-            <input type="checkbox" class="btn-check" id="btn8" value="Node.js" name="skills" autocomplete="off" />
+            <input type="checkbox" class="btn-check" id="btn8" value="Node.js" name="skills" autocomplete="off"/>
             <label class="btn btn-outline-primary" for="btn8">Node.js</label>
-            <input type="checkbox" class="btn-check" id="btn9" value="Express" name="skills" autocomplete="off" />
+            <input type="checkbox" class="btn-check" id="btn9" value="Express" name="skills" autocomplete="off"/>
             <label class="btn btn-outline-primary" for="btn9">Express</label>
-            <input type="checkbox" class="btn-check" id="btn10" value="Flutter" name="skills" autocomplete="off" />
+            <input type="checkbox" class="btn-check" id="btn10" value="Flutter" name="skills" autocomplete="off"/>
             <label class="btn btn-outline-primary" for="btn10">Flutter</label>
         </div>
     </div>
 </div>
 <section class="container grid-gap: 50px; mt-5">
     <ul class="row row-cols-4 gap-3">
+
+        <!-- 구인공고 시작 -->
+        {{#postSkillList}}
+            <li class="card col" style="width: 15rem; padding: 0px !important; border: 0">
+                <a href="/post/detail/{{id}}" style="text-decoration: none; color: black">
+                    <div style="width: 100%; height: 15rem; overflow: hidden">
+                        <img src="{{profile}}" class="card-img-top" alt="이력서 사진"/>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title"><b style="
+                            display: -webkit-box;
+                            -webkit-line-clamp: 1;
+                            -webkit-box-orient: vertical;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                          ">{{title}}</b></h5>
+                        <p class="card-text" style="
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    ">
+                            {{task}}
+                        </p>
+                        <h6><span>{{career}}</span>|<span style="
+                            display: -webkit-box;
+                            -webkit-line-clamp: 1;
+                            -webkit-box-orient: vertical;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                          ">{{workingArea}}</span></h6>
+                        <h6><span>스택</span>|<span>{{#skill}}{{.}}{{/skill}}</span></h6>
+
+                    </div>
+                </a>
+                <div class="d-flex justify-content-center">
+                    <a href="#" class="btn btn-outline-primary mb-3" style="width: 100%">스크랩하기</a>
+                </div>
+            </li>
+        {{/postSkillList}}
+        <!-- 구인공고 끝 -->
         <!-- 구인공고 시작 -->
         <li class="card col" style="width: 15rem; padding: 0px !important; border: 0">
             <a href="#" style="text-decoration: none; color: black">
                 <div style="width: 100%; height: 15rem; overflow: hidden">
-                    <img src="/images/company1.png" class="card-img-top" alt="이력서 사진" />
+                    <img src="/images/company1.png" class="card-img-top" alt="이력서 사진"/>
                 </div>
                 <div class="card-body">
                     <h5 class="card-title"><b>SK(주) C&C</b></h5>
@@ -113,7 +155,7 @@
         <li class="card col" style="width: 15rem; padding: 0px !important; border: 0">
             <a href="#" style="text-decoration: none; color: black">
                 <div style="width: 100%; height: 15rem; overflow: hidden">
-                    <img src="/images/company2.jpg" class="card-img-top" alt="이력서 사진" />
+                    <img src="/images/company2.jpg" class="card-img-top" alt="이력서 사진"/>
                 </div>
                 <div class="card-body">
                     <h5 class="card-title"><b>SK(주) C&C</b></h5>
@@ -141,7 +183,7 @@
         <li class="card col" style="width: 15rem; padding: 0px !important; border: 0">
             <a href="#" style="text-decoration: none; color: black">
                 <div style="width: 100%; height: 15rem; overflow: hidden">
-                    <img src="/images/company3.JPG" class="card-img-top" alt="이력서 사진" />
+                    <img src="/images/company3.JPG" class="card-img-top" alt="이력서 사진"/>
                 </div>
                 <div class="card-body">
                     <h5 class="card-title"><b>SK(주) C&C</b></h5>
@@ -169,7 +211,7 @@
         <li class="card col" style="width: 15rem; padding: 0px !important; border: 0">
             <a href="#" style="text-decoration: none; color: black">
                 <div style="width: 100%; height: 15rem; overflow: hidden">
-                    <img src="/images/company4.png" class="card-img-top" alt="이력서 사진" />
+                    <img src="/images/company4.png" class="card-img-top" alt="이력서 사진"/>
                 </div>
                 <div class="card-body">
                     <h5 class="card-title"><b>SK(주) C&C</b></h5>
@@ -197,7 +239,7 @@
         <li class="card col" style="width: 15rem; padding: 0px !important; border: 0">
             <a href="#" style="text-decoration: none; color: black">
                 <div style="width: 100%; height: 15rem; overflow: hidden">
-                    <img src="/images/company5.png" class="card-img-top" alt="이력서 사진" />
+                    <img src="/images/company5.png" class="card-img-top" alt="이력서 사진"/>
                 </div>
                 <div class="card-body">
                     <h5 class="card-title"><b>SK(주) C&C</b></h5>
@@ -225,7 +267,7 @@
         <li class="card col" style="width: 15rem; padding: 0px !important; border: 0">
             <a href="#" style="text-decoration: none; color: black">
                 <div style="width: 100%; height: 15rem; overflow: hidden">
-                    <img src="/images/company6.jpg" class="card-img-top" alt="이력서 사진" />
+                    <img src="/images/company6.jpg" class="card-img-top" alt="이력서 사진"/>
                 </div>
                 <div class="card-body">
                     <h5 class="card-title"><b>SK(주) C&C</b></h5>
@@ -253,7 +295,7 @@
         <li class="card col" style="width: 15rem; padding: 0px !important; border: 0">
             <a href="#" style="text-decoration: none; color: black">
                 <div style="width: 100%; height: 15rem; overflow: hidden">
-                    <img src="/images/company7.jpg" class="card-img-top" alt="이력서 사진" />
+                    <img src="/images/company7.jpg" class="card-img-top" alt="이력서 사진"/>
                 </div>
                 <div class="card-body">
                     <h5 class="card-title"><b>SK(주) C&C</b></h5>
@@ -281,7 +323,7 @@
         <li class="card col" style="width: 15rem; padding: 0px !important; border: 0">
             <a href="#" style="text-decoration: none; color: black">
                 <div style="width: 100%; height: 15rem; overflow: hidden">
-                    <img src="/images/company8.png" class="card-img-top" alt="이력서 사진" />
+                    <img src="/images/company8.png" class="card-img-top" alt="이력서 사진"/>
                 </div>
                 <div class="card-body">
                     <h5 class="card-title"><b>SK(주) C&C</b></h5>
@@ -307,17 +349,17 @@
         <li class="card col" style="width: 15rem; padding: 0px !important; border: 0">
             <a href="#" style="text-decoration: none; color: black">
                 <div style="width: 100%; height: 15rem; overflow: hidden">
-                    <img src="/images/company9.jpg" class="card-img-top" alt="이력서 사진" />
+                    <img src="/images/company9.jpg" class="card-img-top" alt="이력서 사진"/>
                 </div>
                 <div class="card-body">
                     <h5 class="card-title"><b>SK(주) C&C</b></h5>
                     <p class="card-text" style="
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    ">
+                            display: -webkit-box;
+                            -webkit-line-clamp: 1;
+                            -webkit-box-orient: vertical;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                          ">
                         DBMS(Oracle) 구축 담당 구성원 영입 (촉탁직)
                     </p>
                     <h6><span>Oracle</span>|<span>DBMS/RDBMS</span></h6>
@@ -329,36 +371,7 @@
                 <a href="#" class="btn btn-outline-primary mb-3" style="width: 100%">스크랩하기</a>
             </div>
         </li>
-        <!-- 구인공고 시작 -->
-        {{#postSkillList}}
-            <li class="card col" style="width: 15rem; padding: 0px !important; border: 0">
-                <a href="#" style="text-decoration: none; color: black">
-                    <div style="width: 100%; height: 15rem; overflow: hidden">
-                        <img src="{{profile}}" class="card-img-top" alt="이력서 사진" />
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title"><b>{{title}}</b></h5>
-                        <p class="card-text" style="
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    ">
-                            {{task}}
-                        </p>
-                        <h6><span>{{career}}</span>|<span>{{workingArea}}</span></h6>
-                        <h6><span>스택</span>|<span>{{#skill}}{{.}}{{/skill}}</span></h6>
-
-                    </div>
-                </a>
-                <div class="d-flex justify-content-center">
-                    <a href="#" class="btn btn-outline-primary mb-3" style="width: 100%">스크랩하기</a>
-                </div>
-            </li>
-        {{/postSkillList}}
-        <!-- 구인공고 끝 -->
     </ul>
-<!--   페이지네이션넣기 -->
+    <!--   페이지네이션넣기 -->
 </section>
 {{> layout/footer}}

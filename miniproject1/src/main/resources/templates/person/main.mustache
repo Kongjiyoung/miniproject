@@ -9,7 +9,7 @@
             <a class="nav-link " href="/company/main">구인공고</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/company/matching">맞춤공고</a>
+            <a class="nav-link" href="{{#isMatchingCompany}}/person/matching{{/isMatchingCompany}}{{^isMatchingCompany}}/company/matching{{/isMatchingCompany}}">맞춤공고</a>
         </li>
     </ul>
 </div>

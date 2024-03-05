@@ -22,5 +22,5 @@ public class Offer {
     private String title;
     private String companyName;
 //    private String content;
-    private Date created_at;
+    private Date createdAt;
 }

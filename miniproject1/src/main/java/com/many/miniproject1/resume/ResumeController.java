@@ -1,7 +1,9 @@
 package com.many.miniproject1.resume;
 
 import com.many.miniproject1.skill.SkillRepository;
+import com.many.miniproject1.user.User;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,6 +18,7 @@ import java.util.List;
 public class ResumeController {
     private final ResumeRepository resumeRepository;
     private final SkillRepository skillRepository;
+    private final HttpSession session;
 
     //개인 이력서 관리
     @GetMapping("/person/resume")
@@ -52,16 +55,28 @@ public class ResumeController {
     }
 
     @GetMapping("/person/resume/detail/{id}/saveForm")
-    public String personSaveResumeForm(@PathVariable int id) {
+    public String personSaveResumeForm(@PathVariable int id, HttpServletRequest request) {
+        System.out.println("id: "+id);
+
+        ResumeResponse.DetailDTO detailDTO = resumeRepository.findById(id);
+        List<String> skills = skillRepository.findByResumeId(id);
+
+        detailDTO.setSkill(skills);
+
+        request.setAttribute("resume", detailDTO);
         return "person/saveResumeForm";
     }
 
-//    @PostMapping("/person/resume/detail/{id}/save")
-//    public String personSaveResume(@PathVariable int id, ResumeRequest.SaveDTO requestDTO, HttpServletRequest request) {
-//        insert into resume_tb();
-//        resumeRepository.save(requestDTO, sessionUser.getId());
-//        return "redirect:/person/resume/detail/{id}";
-//    }
+    @PostMapping("/person/resume/detail/{id}/save")
+    public String personSaveResume(ResumeRequest.SaveDTO requestDTO, HttpServletRequest request) {
+
+        User sessionUser = (User) session.getAttribute("sessionUser");
+        if (sessionUser == null) {
+            return "redirect:/person/loginForm";
+        }
+        resumeRepository.save(requestDTO, sessionUser.getId());
+        return "redirect:/person/resume/detail/{id}";
+    }
 
     @GetMapping("/person/resume/detail/{id}/updateForm")
     public String personUpdateResumeForm(@PathVariable int id) {

@@ -22,7 +22,7 @@ public class ResumeResponse {
         private String career;
         private String simpleIntroduce;
         private List<String> skill;
-        private Timestamp created_at;
+        private Timestamp createdAt;
 
         public resumeDTO(Resume resume, List<String> skill) {
             this.id = resume.getId();;
@@ -38,7 +38,7 @@ public class ResumeResponse {
             this.introduce = resume.getIntroduce();
             this.career = resume.getCareer();
             this.simpleIntroduce = resume.getSimpleIntroduce();
-            this.created_at = resume.getCreated_at();
+            this.createdAt = resume.getCreatedAt();
 
             this.skill=skill;
         }
@@ -60,7 +60,7 @@ public class ResumeResponse {
         private String career;
         private String simpleIntroduce;
         private List<String> skill;
-        private Timestamp created_at;
+        private Timestamp createdAt;
 
         public DetailDTO(Resume resume, List<String> skill) {
             this.id = resume.getId();;
@@ -76,7 +76,7 @@ public class ResumeResponse {
             this.introduce = resume.getIntroduce();
             this.career = resume.getCareer();
             this.simpleIntroduce = resume.getSimpleIntroduce();
-            this.created_at = resume.getCreated_at();
+            this.createdAt = resume.getCreatedAt();
 
             this.skill=skill;
         }

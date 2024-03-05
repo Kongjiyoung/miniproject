@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.List;
+
 @Controller
 @RequiredArgsConstructor
 public class UserController {
@@ -47,10 +49,13 @@ public class UserController {
         } else if (!user.getRole().equals("company")) {
             return "error/404";
         } else { // 조회 됐음 (인증됨)
+            Boolean isCompany;
+            isCompany = true;
             session.setAttribute("sessionUser", user);
+            session.setAttribute("isCompany", isCompany);
         }
 
-        return "redirect:/";
+        return "redirect:/company/main";
     }
 
 
@@ -87,9 +92,12 @@ public class UserController {
         } else if (!user.getRole().equals("person")) {
             return "error/404";
         } else { // 조회 됐음 (인증됨)
+            Boolean isPerson;
+            isPerson = true;
             session.setAttribute("sessionUser", user);
+            session.setAttribute("isPerson", isPerson);
         }
-        return "redirect:/";
+        return "redirect:/person/main";
     }
 
 
@@ -104,8 +112,12 @@ public class UserController {
 
     //회사 정보 및 수정
     //회사 정보 수정
-    @GetMapping("/company/info")
-    public String companyInfo() {
+    @GetMapping("/company/info/{id}")
+    public String companyInfo(@PathVariable int id, HttpServletRequest request) {
+        UserResponse.DetailDTO userDTO = userRepository.findByIdWithUser(id);
+        System.out.println(userRepository);
+        User sessionUser = (User) session.getAttribute("sessionUser");
+
         return "company/companyInfo";
     }
 
@@ -128,10 +140,18 @@ public class UserController {
 //   여기에도 머스치에도 post를 적었는데 get이 나오는 이유가 무엇일까요.
     @PostMapping("/company/info/{id}/update")
     public String companyInfoUpdate(@PathVariable int id, UserRequest.UpdateDTO requestDTO) {
-        userRepository.update(requestDTO,id);
+        User sessionUser = (User) session.getAttribute("sessionUser");
+        if (sessionUser == null) {
+            return "redirect:/loginForm";
+        }
+        User user = userRepository.findById(id);
+        if (user.getId() != sessionUser.getId()) {
+            return "error/403";
+        }
+        userRepository.companyUpdate(requestDTO,id);
 
 
-        return "redirect:/company/info"+id;
+        return "redirect:/company/info/"+id;
     }
 
     //개인 프로필 정보 및 수정

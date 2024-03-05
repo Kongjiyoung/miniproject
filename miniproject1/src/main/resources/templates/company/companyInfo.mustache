@@ -11,7 +11,7 @@
             <img src="/images/naver.png" class="rounded mx-auto d-block rounded-4 mt-5 my-3 w-25" alt="회사 로고">
             <div>
                 <div class="container w-50 mt-5 text ">
-                    <form action="/company/info/updateForm" method="get">
+                    <form action="/company/info/{{id}}" method="get">
                         <div class="input-group mb-3">
                             <span class="input-group-text justify-content-center hs_span_size init_color hs_span">회사명</span>
                             <input type="text" class="form-control" value="네이버(주)" readonly>
@@ -57,8 +57,11 @@
                         <!-- 수정완료 버튼 하단으로 수정 -->
                         <div id="checkAlertBox"></div>
                         <!-- <div class="d-inline-flex align-self-center justify-content-center mt-5 w-100"> -->
-                        <div class="d-flex justify-content-center">
-                            <button type="submit" href="/company/info/updateForm" class="btn btn-outline-success mb-3 mt-4" style="width: 100%">수정하기</button>
+                        <hr class="my-4">
+                        <div style="width: 100%;">
+                            <a href="/company/updateInfoForm" class="btn btn-warning me-1">수정</a>
+                            <button type="submit" class="btn btn-outline-success mb-3"
+                                    style="width: 100%">수정하기</button>
                         </div>
                         <!-- </div> -->
                     </form>
@@ -68,11 +71,11 @@
     </div>
     <!-- list-group( 오른쪽 바로가기) 시작 -->
     <div class="list-group mx-2">
-        <a href="#" class="list-group-item shadow " style="width: 180px;">회사 정보 관리</a>
-        <a href="#" class="list-group-item shadow">공고 관리</a>
-        <a href="#" class="list-group-item hs_list_effect shadow">받은 이력서</a>
-        <a href="#" class="list-group-item shadow">스크랩한 이력서</a>
-        <a href="#" class="list-group-item shadow">제안한 이력서</a>
+        <a href="/company/info" class="list-group-item shadow " style="width: 180px;">회사 정보 관리</a>
+        <a href="/company/post" class="list-group-item shadow">공고 관리</a>
+        <a href="/company/resume" class="list-group-item hs_list_effect shadow">받은 이력서</a>
+        <a href="/company/scrap" class="list-group-item shadow">스크랩한 이력서</a>
+        <a href="/company/offers" class="list-group-item shadow">제안한 이력서</a>
     </div>
     <!-- list-group( 오른쪽 바로가기) 끝 -->
 </div>

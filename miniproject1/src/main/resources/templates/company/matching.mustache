@@ -14,11 +14,76 @@
     </ul>
     <!-- 유형별 공고 탭 끝 -->
 </div>
-
+<!-- 검색 -->
+<div class="container align-items-center mt-3 border p-3" style="border-radius: 10px;">
+    <form action="/person/matching" method="post">
+        <div class="d-flex justify-content-start align-items-center ">
+            <h5 class="pb-2">공고별 인재 찾기</h5>
+            <div class="search-top mx-3 mb-3 d-flex justify-content-between">
+                <button class="btn btn-outline-success" type="submit">
+                    <!-- 검색 -->
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </div>
+        </div>
+        <div class="search-mid">
+            <div class="d-flex justify-content-between">
+                <div style="width: 100%;">
+                    <select class="form-select" aria-label="Default select example" id="postChoice" name="postChoice">
+                        <option selected>채용 공고 선택</option>
+                        {{#postList}}
+                            <option value="{{id}}">{{title}}</option>
+                        {{/postList}}
+                    </select>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
 <section class="container grid-gap: 50px; mt-5">
     <h1>인재추천</h1>
     <br>
     <ul class="row row-cols-4 gap-3">
+        <!-- 이력서 시작 -->
+        {{#resumeSkillList}}
+            <li class="card col" style="width: 15rem; padding: 0px !important; border: 0">
+                <a href="/resume/detail/{{id}}" style="text-decoration: none; color: black">
+                    <div style="width: 100%; height: 15rem; overflow: hidden">
+                        <img src="{{profile}}" class="card-img-top" alt="이력서 사진"/>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title"><b>{{username}}</b></h5>
+                        <h6><span>커리어</span>|<span>{{career}}</span></h6>
+
+                        <p class="card-text" style="
+                  display: -webkit-box;
+                  -webkit-line-clamp: 2;
+                  -webkit-box-orient: vertical;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+                ">
+                            {{simpleIntroduce}}
+                        </p>
+                        <div class="d-flex justify-content-start" style="
+                  display: -webkit-box;
+                  -webkit-line-clamp: 1;
+                  -webkit-box-orient: vertical;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+                ">
+                            <h6><span>{{#skill}}
+                                <button class="btn btn-outline-warning btn-sm disabled">
+                                    {{.}}
+                                </button>{{/skill}}</span></h6>
+                        </div>
+                    </div>
+                </a>
+                <div class="d-flex justify-content-center">
+                    <a href="/view/company/resumeDetail.html" class="btn btn-outline-primary mb-3" style="width: 100%">스크랩하기</a>
+                </div>
+            </li>
+        {{/resumeSkillList}}
+
         <!-- 이력서 시작 -->
         <li class="card col" style="width: 15rem; padding: 0px !important; border: 0">
             <a href="#" style="text-decoration: none; color: black">

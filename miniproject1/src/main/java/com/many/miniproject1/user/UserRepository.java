@@ -20,7 +20,7 @@ public class UserRepository {
     }
 
     public User findById(int id) {
-        Query query = em.createNativeQuery("select * from user_tb where id=?");
+        Query query = em.createNativeQuery("select * from user_tb where id=?", User.class);
         query.setParameter(1, id);
 
         try {
@@ -41,6 +41,7 @@ public class UserRepository {
         query.setParameter(5, requestDTO.getPassword());
         query.executeUpdate();
     }
+
     @Transactional
     public void personSave(UserRequest.JoinDTO requestDTO) {
         Query query = em.createNativeQuery("insert into user_tb(role, username, email, password, created_at) values('person',?,?,?, now())");
@@ -51,7 +52,7 @@ public class UserRepository {
     }
 
     @Transactional
-    public void update(UserRequest.UpdateDTO requestDTO, int id) {
+    public void companyUpdate(UserRequest.UpdateDTO requestDTO, int id) {
         Query query = em.createNativeQuery("update user_tb set where id = ?");
         query.setParameter(1, id);
 
@@ -71,10 +72,33 @@ public class UserRepository {
         query.setParameter(1, requestDTO.getEmail());
         query.setParameter(2, requestDTO.getPassword());
         try {
-           User user = (User) query.getSingleResult();
-           return user;
+            User user = (User) query.getSingleResult();
+            return user;
         } catch (Exception e) {
             return null;
         }
+    }
+
+    public UserResponse.DetailDTO findByIdWithUser(int id) {
+        Query query = em.createNativeQuery("select * from user_tb where id = ?");
+        query.setParameter(1, id);
+
+        Object[] row = (Object[]) query.getSingleResult();
+        String role = (String) row[0];
+        String email=(String) row[1];
+        String password=(String) row[2];
+        String username=(String) row[3];
+        String tel=(String) row[4];
+        String profile=(String) row[5];
+
+        UserResponse.DetailDTO responseDTO = new UserResponse.DetailDTO();
+
+        responseDTO.setRole(role);
+        responseDTO.setEmail(email);
+        responseDTO.setPassword(password);
+        responseDTO.setUsername(username);
+        responseDTO.setTel(tel);
+        responseDTO.setProfile(profile);
+        return responseDTO;
     }
 }

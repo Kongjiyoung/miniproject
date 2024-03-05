@@ -66,19 +66,27 @@
                 <!--                <a href="/company/post/detail/{id}/updateForm" class="btn btn-outline-success mb-3"-->
                 <!--                        style="width: 100%">수정하기-->
                 <!--                </a> -->
-                <a href="/company/post/detail/{{id}}/updateForm" class="btn btn-outline-success mb-3"
-                   style="width: 100%">수정하기
-                </a>
+                <div>
+                    <a href="/company/post/detail/{{id}}/updateForm" class="btn btn-outline-success mb-3"
+                       style="width: 100%">수정하기
+                    </a>
+                </div>
+                <form action="/company/post/detail/{{id}}/delete" method="post">
+                    <button class="btn btn-outline-danger mb-3"
+                            style="width: 100%">삭제하기
+                    </button>
+                </form>
+
             </div>
         </div>
     </div>
     <!-- list-group( 오른쪽 바로가기) 시작 -->
     <div class="list-group mx-2">
-        <a href="/view/company/info.html" class="list-group-item shadow " style="width: 180px;">회사 정보 관리</a>
-        <a href="/view/company/posts.html" class="list-group-item shadow">공고 관리</a>
-        <a href="/view/company/getResume.html" class="list-group-item hs_list_effect shadow">받은 이력서</a>
-        <a href="/view/company/scrap.html" class="list-group-item shadow">스크랩한 이력서</a>
-        <a href="/view/company/offers.html" class="list-group-item shadow">제안한 이력서</a>
+        <a href="/company/info" class="list-group-item shadow " style="width: 180px;">회사 정보 관리</a>
+        <a href="/company/post" class="list-group-item shadow">공고 관리</a>
+        <a href="/company/resume" class="list-group-item hs_list_effect shadow">받은 이력서</a>
+        <a href="/company/scrap" class="list-group-item shadow">스크랩한 이력서</a>
+        <a href="/company/offers" class="list-group-item shadow">제안한 이력서</a>
     </div>
     <!-- list-group( 오른쪽 바로가기) 끝 -->
 </div>

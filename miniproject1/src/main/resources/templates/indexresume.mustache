@@ -83,14 +83,14 @@
         <!-- 이력서 시작 -->
         {{#resumeSkillList}}
             <li class="card col" style="width: 15rem; padding: 0px !important; border: 0">
-                <a href="" style="text-decoration: none; color: black">
+                <a href="/resume/detail/{{id}}" style="text-decoration: none; color: black">
                     <div style="width: 100%; height: 15rem; overflow: hidden">
                         <img src="{{profile}}" class="card-img-top" alt="이력서 사진"/>
                     </div>
                     <div class="card-body">
                         <h5 class="card-title"><b>{{username}}</b></h5>
                         <h6><span>커리어</span>|<span>{{career}}</span></h6>
-                        <h6><span>스택</span>|<span>{{#skill}}{{.}}{{/skill}}</span></h6>
+
 
                         <p class="card-text" style="
                   display: -webkit-box;
@@ -101,30 +101,10 @@
                 ">
                             {{simpleIntroduce}}
                         </p>
-                        <div class="d-flex justify-content-start" style="
-                  display: -webkit-box;
-                  -webkit-line-clamp: 1;
-                  -webkit-box-orient: vertical;
-                  overflow: hidden;
-                  text-overflow: ellipsis;
-                ">
-                            <button class="btn btn-outline-info btn-sm disabled"
-                                    style="padding: 0px 5px; margin-bottom: 0px !important">
-                                DEV
-                            </button>
+                        <h6><span>{{#skill}}
                             <button class="btn btn-outline-warning btn-sm disabled">
-                                JAVA
-                            </button>
-                            <button class="btn btn-outline-warning btn-sm disabled">
-                                Flutter
-                            </button>
-                            <button class="btn btn-outline-warning btn-sm disabled">
-                                JavaScript
-                            </button>
-                            <button class="btn btn-outline-warning btn-sm disabled">
-                                React
-                            </button>
-                        </div>
+                                {{.}}
+                            </button>{{/skill}}</span></h6>
                     </div>
                 </a>
                 <div class="d-flex justify-content-center">

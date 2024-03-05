@@ -11,10 +11,10 @@
             <ul class="image-preview rounded mx-auto d-block rounded-4 mt-5 my-3 w-25"></ul>
             <input type="file" class="real-upload mx-auto d-block mt-5 my-3 w-25" accept="image/*" required
                    multiple>
-            <form>
+            <form action="/company/post/detail/{{id}}/update" method="post" enctype="application/x-www-form-urlencoded">
                 <div class="px-5 mt-5">
                     <h5><b>공고명</b></h5>
-                    <input class="form-control" type="text" name="" id="" value="" required>
+                    <input class="form-control" type="text" name="" id="" value="{{post.title}}" required>
                     <div class="pt-4">
                         <hr class="d-inline-flexw-100">
                     </div>
@@ -24,29 +24,28 @@
                                 <tr class="pb-5">
                                     <th>지원 자격</th>
                                     <td>
-                                        <select name="" id="" class="jm_select selectpicker" data-style="btn-info"
+                                        <select name="career" id="" class="jm_select selectpicker" data-style="btn-info"
                                                 style=" height: 35px;">
                                             <option value="" selected>
-                                                <!-- 기입되었던 경력이 0이면 -->
-                                                신입
-                                                <!-- 기업되었던 경력이 0이 아니면 -->
-                                                00년차 이상
+                                                {{post.career}}
                                             </option>
-                                            <option value="0">신입</option>
-                                            <option value="1">1년차 이상</option>
-                                            <option value="3">3년차 이상</option>
-                                            <option value="5">5년차 이상</option>
+                                            <option value="경력무관" selected>경력무관</option>
+                                            <option value="인턴">인턴</option>
+                                            <option value="신입(1년 이하)">신입(1년 이하)</option>
+                                            <option value="주니어(1~3년)">주니어(1~3년)</option>
+                                            <option value="미들(9년 이상)">미들(9년 이상)</option>
+                                            <option value="Lead레벨">Lead레벨</option>
                                         </select>
                                     </td>
                                     <th>연봉</th>
                                     <td>
                                         <select name="" id="" class="jm_select selectpicker" style=" height: 35px;">
-                                            <option value="" selected></option>
-                                            <option value="">면접 후 결정</option>
-                                            <option value="">2000만원</option>
-                                            <option value="">3000만원</option>
-                                            <option value="">4000만원</option>
-                                            <option value="">5000만원 이상</option>
+                                            <option value="" selected>{{post.pay}}</option>
+                                            <option value="회사 내규에 따름" selected>회사 내규에 따름</option>
+                                            <option value="2000만원">2000만원</option>
+                                            <option value="3000만원">3000만원</option>
+                                            <option value="4000만원">4000만원</option>
+                                            <option value="5000만원 이상">5000만원 이상</option>
                                         </select>
                                     </td>
                                 </tr>
@@ -71,21 +70,23 @@
                         <div class="mt-4">
                             <h5><b>마감 일자</b></h5>
                             <div class="border border-tertiary p-3 d-inline-flex me-3 mb-3 w-100">
-                                <input class="form-control" type="date" id="" name="" required>
+                                <input class="form-control" type="date" id="" name="" value="{{post.deadline}}"
+                                       required>
                             </div>
                         </div>
 
-                        <div class="mt-4">
-                            <h5><b>기업 소개</b></h5>
-                            <div class="border border-tertiary p-3 d-inline-flex me-3 mb-3 w-100">
-                                <input class="form-control border-0" type="text" name="" id="" value="" required>
-                            </div>
-                        </div>
+                        <!--                        <div class="mt-4">-->
+                        <!--                            <h5><b>기업 소개</b></h5>-->
+                        <!--                            <div class="border border-tertiary p-3 d-inline-flex me-3 mb-3 w-100">-->
+                        <!--                                <input class="form-control border-0" type="text" name="" id="" value="" required>-->
+                        <!--                            </div>-->
+                        <!--                        </div>-->
 
                         <div class="mt-4">
                             <h5><b>업무 소개</b></h5>
                             <div class="border border-tertiary p-3 d-inline-flex me-3 mb-3 w-100">
-                                <input class="form-control border-0" type="text" name="" id="" value="" required>
+                                <input class="form-control border-0" type="text" name="" id="" value="{{post.task}}"
+                                       required>
                             </div>
                         </div>
 
@@ -126,8 +127,9 @@
                             </div>
                         </div>
                         <div style="width: 100%;">
-                            <a href="/view/company/posts.html" class="btn btn-outline-success mb-3"
-                               style="width: 100%">수정완료</a>
+                            <button type="submit" class="btn btn-outline-success mb-3"
+                                    style="width: 100%">수정완료
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -136,11 +138,11 @@
     </div>
     <!-- list-group( 오른쪽 바로가기) 시작 -->
     <div class="list-group mx-2">
-        <a href="/view/company/info.html" class="list-group-item shadow " style="width: 180px;">회사 정보 관리</a>
-        <a href="/view/company/posts.html" class="list-group-item shadow">공고 관리</a>
-        <a href="/view/company/getResume.html" class="list-group-item hs_list_effect shadow">받은 이력서</a>
-        <a href="/view/company/scrap.html" class="list-group-item shadow">스크랩한 이력서</a>
-        <a href="/view/company/offers.html" class="list-group-item shadow">제안한 이력서</a>
+        <a href="/company/info" class="list-group-item shadow " style="width: 180px;">회사 정보 관리</a>
+        <a href="/company/post" class="list-group-item shadow">공고 관리</a>
+        <a href="/company/resume" class="list-group-item hs_list_effect shadow">받은 이력서</a>
+        <a href="/company/scrap" class="list-group-item shadow">스크랩한 이력서</a>
+        <a href="/company/offers" class="list-group-item shadow">제안한 이력서</a>
     </div>
     <!-- list-group( 오른쪽 바로가기) 끝 -->
 </div>

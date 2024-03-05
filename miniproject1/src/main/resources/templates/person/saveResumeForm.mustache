@@ -32,29 +32,45 @@
                                 <div class="input-group mb-3">
                                         <span
                                                 class="input-group-text justify-content-center w-25 init_color hs_span">이름</span>
-                                    <input type="text" class="form-control" style="width: 120px;" value="" name=""
+                                    <input type="text" class="form-control" style="width: 120px;"
+                                           value="{{resume.username}}" name=""
                                            required>
                                 </div>
                                 <div class="input-group mb-3">
                                         <span
                                                 class="input-group-text justify-content-center w-25 init_color hs_span">생년월일</span>
-                                    <input type="date" class="form-control" style="width: 120px;" value="" name=""
+                                    <input type="date" class="form-control" style="width: 120px;"
+                                           value="{{resume.birth}}" id="birthdateInput" name="birthdate"
                                            required>
                                 </div>
+
+                                <script>
+                                    var birthdateString = "{{resume.birth}}";
+
+                                    // 문자열을 날짜 객체로 변환
+                                    var birthdate = new Date(birthdateString.substring(0, 4), birthdateString.substring(4, 6) - 1, birthdateString.substring(6, 8));
+
+                                    // YYYY-MM-DD
+                                    var formattedBirthdate = birthdate.toISOString().substring(0, 10);
+
+                                    // 바꾼 날짜형식으로 넣기
+                                    document.getElementById("birthdateInput").value = formattedBirthdate;
+                                </script>
+
                                 <div class="input-group mb-3">
                                         <span
                                                 class="input-group-text justify-content-center w-25 init_color hs_span">연락처</span>
-                                    <input type="tel" class="form-control" value="" name="" required>
+                                    <input type="tel" class="form-control" value="{{resume.tel}}" name="" required>
                                 </div>
                                 <div class="input-group mb-3">
                                         <span
                                                 class="input-group-text justify-content-center w-25 init_color hs_span">주소</span>
-                                    <input type="text" class="form-control" value="" name="" required>
+                                    <input type="text" class="form-control" value="{{resume.address}}" name="" required>
                                 </div>
                                 <div class="input-group mb-3">
                                         <span
                                                 class="input-group-text justify-content-center w-25 init_color hs_span">이메일</span>
-                                    <input type="email" class="form-control" value="" required>
+                                    <input type="email" class="form-control" value="{{resume.email}}" required>
                                 </div>
                             </div>
                         </div>
@@ -63,7 +79,7 @@
                 <div class="container" style="width: 85%;">
                     <div class="row justify-content-center">
                         <div class="col-md-14 mx-auto">
-                            <input type="file" class="form-control mt-2" name="" />
+                            <input type="file" class="form-control mt-2" name=""/>
                             <div class="mt-5">
                                 <h4>포트폴리오 주소</h4>
                                 <input type="text" class="form-control mt-2" id="" name="" style="display: block;"
@@ -123,7 +139,7 @@
                                       placeholder="100자 이상 작성해 주세요." minlength="100"></textarea>
                         </div>
                         <div class="d-flex justify-content-center">
-                            <a href="/view/person/resumes.html" class="btn btn-outline-success mb-3 mt-3"
+                            <a href="/person/resume" class="btn btn-outline-success mb-3 mt-3"
                                style="width: 100%">저장하기</a>
                         </div>
                     </div>
@@ -133,11 +149,11 @@
     </form>
     <!-- list-group( 오른쪽 바로가기) 시작 -->
     <div class="list-group mx-2">
-        <a href="/view/person/info.html" class="list-group-item shadow " style="width: 150px;">회원정보관리</a>
-        <a href="/view/person/resumes.html" class="list-group-item shadow">이력서관리</a>
-        <a href="/view/person/scrap.html" class="list-group-item hs_list_effect shadow">스크랩한 공고</a>
-        <a href="/view/person/offerEmails.html" class="list-group-item shadow">받은 제안</a>
-        <a href="/view/person/history.html" class="list-group-item shadow">지원 현황</a>
+        <a href="/person/info" class="list-group-item shadow " style="width: 150px;">회원정보관리</a>
+        <a href="/person/resume" class="list-group-item shadow">이력서관리</a>
+        <a href="/person/scrap" class="list-group-item hs_list_effect shadow">스크랩한 공고</a>
+        <a href="/person/offerEmails" class="list-group-item shadow">받은 제안</a>
+        <a href="/person/apply" class="list-group-item shadow">지원 현황</a>
     </div>
     <!-- list-group( 오른쪽 바로가기) 끝 -->
 </div>

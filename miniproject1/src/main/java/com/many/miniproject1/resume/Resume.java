@@ -26,5 +26,5 @@ public class Resume {
     private String introduce;
     private String career;
     private String simpleIntroduce;
-    private Timestamp created_at;
+    private Timestamp createdAt;
 }

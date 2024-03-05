@@ -16,5 +16,5 @@ public class Scrap {
     private Integer postId;
     private Integer postWriterId;
     private Integer resumeWriterId;
-    private Timestamp created_at;
+    private Timestamp createdAt;
 }
