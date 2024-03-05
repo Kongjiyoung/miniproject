@@ -14,11 +14,12 @@ import java.time.LocalDateTime;
 public class Offer {
     @Id // PK 설정
     @GeneratedValue(strategy = GenerationType.IDENTITY) // auto_increment 전략
-    private Integer id;
-    private Integer resumeId;
-    private Integer postId;
-    private Integer companyId; // 회사Id
-    private Integer personId; // 구직자ID
+    private Integer id;         // 제안 ID
+    private Integer resumeId;   // 이력서 ID
+    private Integer postId;     // 공고 ID
+
+    private Integer companyId;  // 회사 ID
+    private Integer personId;   // 구직자 ID
 //    private String content;
-    private Date createdAt;
+    private Timestamp createdAt;
 }

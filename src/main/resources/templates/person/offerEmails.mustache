@@ -26,15 +26,15 @@
                     <!-- 지원 이력서 하나일 때  -->
                     <tr class="table-info">
                         <td>Space X</td>
-                        <td><a href="#" class="text-decoration-none">채용공고</td>
+                        <td><a href="#" class="text-decoration-none">채용공고</a></td>
                         <td>2024-03-05</td>
                     </tr>
                     <!-- 그 외 -->
                     {{#offerList}}
                         <tr class="table-info">
                             <td>{{id}}</td>
-                            <td><a href="#" class="text-decoration-none">{{title}}</td>
-                            <td>{{createdAt}}</td>
+                            <td><a href="/post/detail/{{id}}" class="text-decoration-none">{{id}}</td>
+                            <td>{{id}}</td>
                         </tr>
                     {{/offerList}}
                     <!-- <tr class="table-secondary">
