@@ -28,15 +28,25 @@ public class OfferRepository {
         return offer;
     }
 
+    public Offer findCompanynameById(int id) {
+        Query query = em.createNativeQuery("SELECT ut.company_name FROM offer_tb ot JOIN post_tb pt ON pt.company_id = ot.post_writer_id JOIN user_tb ut ON ut.id = pt.company_id WHERE ot.id = ?;", Offer.class);
+        query.setParameter(1, id);
+
+//        Object[] row = (Object[]) query.getSingleResult();
+
+        Offer offer = (Offer) query.getSingleResult();
+//        String company_name = (String)row[0];
+//        String post_id = (String)row[1];
+//
+//        System.out.println("company_name : " + company_name);
+//        System.out.println("post_id : " + post_id);
+        return offer;
+    }
 //    public Offer findCompanynameById(int id) {
-//        Query query = em.createNativeQuery("SELECT ut.company, post_id " +
-//                "FROM offer_tb " +
-//                "JOIN post_tb pt ON pt.company_id = ot.post_writer_id" +
-//                        " JOIN user_tb ut ON ut.id = pt.company_id WHERE id = ?;", Offer.class);
+//        Query query = em.createNativeQuery("SELECT ut.company_name FROM offer_tb ot JOIN post_tb pt ON pt.company_id = ot.post_writer_id JOIN user_tb ut ON ut.id = pt.company_id WHERE ot.id = ?;", Offer.class);
 //        query.setParameter(1, id);
 //
 //        Offer offer = (Offer) query.getSingleResult();
-//
 //        return offer;
 //    }
 //    public Offer List<Offer> fintAllSelect(int id) {
