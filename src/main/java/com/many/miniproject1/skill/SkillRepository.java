@@ -1,14 +1,10 @@
 package com.many.miniproject1.skill;
 
-import com.many.miniproject1.post.Post;
-import com.many.miniproject1.post.PostRequest;
-import com.many.miniproject1.post.PostResponse;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Query;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
-
 
 import java.util.ArrayList;
 import java.util.List;

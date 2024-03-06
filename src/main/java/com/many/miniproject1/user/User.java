@@ -2,7 +2,6 @@ package com.many.miniproject1.user;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import org.hibernate.annotations.ColumnDefault;
 
 import java.sql.Timestamp;
 

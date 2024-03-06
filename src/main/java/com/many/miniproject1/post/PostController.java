@@ -1,6 +1,5 @@
 package com.many.miniproject1.post;
 
-import com.many.miniproject1.skill.Skill;
 import com.many.miniproject1.skill.SkillRepository;
 import com.many.miniproject1.skill.SkillRequest;
 import com.many.miniproject1.user.User;

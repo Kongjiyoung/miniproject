@@ -1,7 +1,6 @@
 package com.many.miniproject1.post;
 
 import lombok.Data;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 

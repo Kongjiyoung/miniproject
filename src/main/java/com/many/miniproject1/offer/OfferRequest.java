@@ -2,9 +2,6 @@ package com.many.miniproject1.offer;
 
 import lombok.Data;
 
-import java.sql.Date;
-import java.sql.Timestamp;
-
 public class OfferRequest {
     @Data
     public static class SaveDTO {

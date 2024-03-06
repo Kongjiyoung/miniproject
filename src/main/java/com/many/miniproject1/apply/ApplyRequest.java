@@ -2,8 +2,6 @@ package com.many.miniproject1.apply;
 
 import lombok.Data;
 
-import java.sql.Timestamp;
-
 
 public class ApplyRequest {
     @Data
@@ -18,6 +16,6 @@ public class ApplyRequest {
 
     @Data
     public static class UpdateDTO {
-        private Integer id;
+        private String isPass;
     }
 }

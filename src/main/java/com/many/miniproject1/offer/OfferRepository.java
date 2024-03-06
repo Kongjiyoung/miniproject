@@ -1,6 +1,5 @@
 package com.many.miniproject1.offer;
 
-import com.many.miniproject1.post.PostResponse;
 import com.many.miniproject1.resume.Resume;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Query;

@@ -1,9 +1,7 @@
 package com.many.miniproject1.post;
 
-import com.many.miniproject1.user.User;
 import lombok.Data;
 
-import java.sql.Timestamp;
 import java.util.List;
 
 public class PostResponse {

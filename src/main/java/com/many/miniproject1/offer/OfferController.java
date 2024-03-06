@@ -1,7 +1,6 @@
 package com.many.miniproject1.offer;
 
 import com.many.miniproject1.main.MainResponse;
-import com.many.miniproject1.post.Post;
 import com.many.miniproject1.resume.Resume;
 import com.many.miniproject1.resume.ResumeRepository;
 import com.many.miniproject1.skill.SkillRepository;

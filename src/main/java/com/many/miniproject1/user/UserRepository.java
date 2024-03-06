@@ -33,14 +33,15 @@ public class UserRepository {
 
     @Transactional
     public void companySave(UserRequest.JoinDTO requestDTO) {
-        Query query = em.createNativeQuery("insert into user_tb(role, email, password, username, company_name, company_num, address, created_at) values('company',?,?,?,?,?,?, now())");
+        Query query = em.createNativeQuery("insert into user_tb(role, email, password, username, tel, company_name, address, company_num, profile, created_at) values ('company', ?, ?, ?, ?, ?, ?, ?, '/images/company1.png', now());");
         query.setParameter(1, requestDTO.getEmail());
         query.setParameter(2, requestDTO.getPassword());
         query.setParameter(3, requestDTO.getUsername());
-        query.setParameter(4, requestDTO.getCompanyName());
-        query.setParameter(5, requestDTO.getCompanyNum());
-        query.setParameter(6, requestDTO.getCompanyNum());
+        query.setParameter(4, requestDTO.getTel());
+        query.setParameter(5, requestDTO.getCompanyName());
         query.setParameter(6, requestDTO.getAddress());
+        query.setParameter(7, requestDTO.getCompanyNum());
+
         query.executeUpdate();
     }
 
@@ -48,11 +49,11 @@ public class UserRepository {
     public void personSave(UserRequest.JoinDTO requestDTO) {
         Query query = em.createNativeQuery("insert into user_tb(role, birth, email, password, username, tel, address, created_at) values('person',?,?,?,?,?,?,now())");
         query.setParameter(1, requestDTO.getBirth());
-        query.setParameter(1, requestDTO.getEmail());
-        query.setParameter(1, requestDTO.getPassword());
-        query.setParameter(1, requestDTO.getUsername());
-        query.setParameter(2, requestDTO.getTel());
-        query.setParameter(3, requestDTO.getAddress());
+        query.setParameter(2, requestDTO.getEmail());
+        query.setParameter(3, requestDTO.getPassword());
+        query.setParameter(4, requestDTO.getUsername());
+        query.setParameter(5, requestDTO.getTel());
+        query.setParameter(6, requestDTO.getAddress());
         query.executeUpdate();
     }
 

@@ -84,7 +84,7 @@ public class MainController {
         // DTO에 ArrayList는 초기화 해두어도 된다.
         ResumeResponse.DetailDTO detailDTO = resumeRepository.findById(id);
         List<String> skills = skillRepository.findByResumeId(id);
-        //detailDTO.setSkill(skills);
+        //detailDTO.set
 
 
         User sessionUser = (User) session.getAttribute("sessionUser");
@@ -234,7 +234,6 @@ public class MainController {
         saveDTO.setResumeId(resumeChoice);
         saveDTO.setPostId(id);
         saveDTO.setCompanyId(mainRepository.findCompanyId(id));
-
         saveDTO.setPersonId(personId);
         saveDTO.setIsPass("검토중");
 

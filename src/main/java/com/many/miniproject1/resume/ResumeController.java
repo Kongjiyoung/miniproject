@@ -2,7 +2,6 @@ package com.many.miniproject1.resume;
 
 import com.many.miniproject1.skill.SkillRepository;
 import com.many.miniproject1.user.User;
-import com.many.miniproject1.user.UserRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
@@ -13,8 +12,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
 
 @Controller
 @RequiredArgsConstructor

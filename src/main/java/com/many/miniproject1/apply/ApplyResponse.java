@@ -1,6 +1,5 @@
 package com.many.miniproject1.apply;
 
-import com.many.miniproject1.post.Post;
 import lombok.Data;
 
 import java.sql.Timestamp;
@@ -8,7 +7,7 @@ import java.util.List;
 
 public class ApplyResponse {
     @Data
-    public static class applyDetailDTO {
+    public static class ApplyPostDTO {
         private Integer id;
         private Integer companyId;
         private String title;
@@ -26,7 +25,7 @@ public class ApplyResponse {
     }
 
     @Data
-    public static class postIsPassDTO {
+    public static class PostIsPassDTO {
         private Integer id;
         private Integer companyId;
         private String title;
@@ -44,7 +43,7 @@ public class ApplyResponse {
         private Timestamp createdAt;
 //
 
-        public postIsPassDTO(ApplyResponse.applyDetailDTO post, List<String> skills) {
+        public PostIsPassDTO(ApplyPostDTO post, List<String> skills) {
             this.id = post.getId();
             this.companyId =  post.getCompanyId();
             this.title =  post.getTitle();
@@ -60,6 +59,63 @@ public class ApplyResponse {
             this.isPass=post.getIsPass();
             this.skill = skills;
             this.createdAt =  post.getCreatedAt();
+        }
+    }
+    @Data
+    public static class ApplyResumeDTO {
+        private Integer id;
+        private Integer personId;
+        private String title;
+        private String profile;
+        private String portfolio;
+        private String introduce;
+        private String career;
+        private String simpleIntroduce;
+        private Timestamp createdAt;
+        private String email;
+        private String username;
+        private String tel;
+        private String address;
+        private String birth;
+        private String isPass;
+    }
+
+    @Data
+    public static class ResumeIsPassDTO {
+        private Integer id;
+        private Integer personId;
+        private String title;
+        private String profile;
+        private String portfolio;
+        private String introduce;
+        private String career;
+        private String simpleIntroduce;
+        private Timestamp createdAt;
+        private String email;
+        private String username;
+        private String tel;
+        private String address;
+        private String birth;
+        private String isPass;
+        private List<String> skills;
+
+        public ResumeIsPassDTO(ApplyResumeDTO resumeDTO, List<String> skills) {
+            this.id = resumeDTO.getId();
+            this.personId = resumeDTO.getPersonId();
+            this.title = resumeDTO.getTitle();
+            this.profile = resumeDTO.getProfile();
+            this.portfolio = resumeDTO.getPortfolio();
+            this.introduce = resumeDTO.getIntroduce();
+            this.career = resumeDTO.getCareer();
+            this.simpleIntroduce = resumeDTO.getSimpleIntroduce();
+            this.createdAt = resumeDTO.getCreatedAt();
+            this.email = resumeDTO.getEmail();
+            this.username = resumeDTO.getUsername();
+            this.tel = resumeDTO.getTel();
+            this.address = resumeDTO.getAddress();
+            this.birth = resumeDTO.getBirth();
+            this.isPass = resumeDTO.getIsPass();
+            this.skills = skills;
         }
     }
 }

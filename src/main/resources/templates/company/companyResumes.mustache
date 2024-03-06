@@ -4,426 +4,61 @@
     <section class="container grid-gap: 50px; mt-5">
         <h1>00에 도착한 이력서를 검토해보세요</h1>
         <br>
-        <div class="container grid-gap: 50px;">
-            <ul class="nav nav-tabs">
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="#">프론트엔드</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="#">백엔드</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">엔지니어</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">퍼블리셔</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">기타</a>
-                </li>
-            </ul>
-        </div>
+
         <!-- 유형별 공고 탭 끝 -->
         <br>
         <ul class="row row-cols-4 gap-3">
-            <li class="card col" style="width: 15rem; padding: 0px !important; border: 0">
-                <a href="/view/company/resumeDetail.html" style="text-decoration: none; color: black">
-                    <div style="width: 100%; height: 15rem; overflow: hidden">
-                        <img src="/images/person01.png" class="card-img-top" alt="이력서 사진" />
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title"><b>이력서 제목</b></h5>
-                        <h6><span>커리어</span>|<span>2년차, 2개 회사 근무</span></h6>
-                        <p class="card-text" style="
+                {{#resumeSkillList}}
+                    <li class="card col" style="width: 15rem; padding: 0px !important; border: 0">
+                        <div class="form-check d-flex justify-content-center">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"
+                                   checked required>
+                            <label class="form-check-label" for="flexRadioDefault1"></label>
+                        </div>
+                        <a href="/company/resume/{{id}}/detail" style="text-decoration: none; color: black">
+                            <div style="width: 100%; height: 15rem; overflow: hidden">
+                                <img src="/images/person01.png" class="card-img-top" alt="이력서 사진"/>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title" style="
+                            display: -webkit-box;
+                            -webkit-line-clamp: 1;
+                            -webkit-box-orient: vertical;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                          "><b>{{title}}</b></h5>
+                                <h6><span>커리어</span>|<span>{{career}}</span></h6>
+                                <p class="card-text" style="
                           display: -webkit-box;
                           -webkit-line-clamp: 2;
                           -webkit-box-orient: vertical;
                           overflow: hidden;
                           text-overflow: ellipsis;
                         ">
-                            Some quick example text to build on the card title and make up
-                            the bulk of the card's content.
-                        </p>
-                        <!-- 버튼 구림 -->
-                        <div class="d-flex justify-content-start" style="
+                                    {{simpleIntroduce}}
+                                </p>
+                                <!-- 버튼 구림 -->
+                                <div class="d-flex justify-content-start" style="
                           display: -webkit-box;
                           -webkit-line-clamp: 1;
                           -webkit-box-orient: vertical;
                           overflow: hidden;
                           text-overflow: ellipsis;
                         ">
-                            <button class="btn btn-outline-info btn-sm disabled"
-                                    style="padding: 0px 5px; margin-bottom: 0px !important">
-                                DEV
-                            </button>
-                            <button class="btn btn-outline-warning btn-sm disabled">
-                                JAVA
-                            </button>
-                            <button class="btn btn-outline-warning btn-sm disabled">
-                                Flutter
-                            </button>
-                            <button class="btn btn-outline-warning btn-sm disabled">
-                                JavaScript
-                            </button>
-                            <button class="btn btn-outline-warning btn-sm disabled">
-                                React
-                            </button>
+                                    <h6><span>{{#skills}}
+                                        <button class="btn btn-outline-warning btn-sm disabled">
+                                            {{.}}
+                                        </button>{{/skills}}</span></h6>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="d-flex justify-content-center">
+                            <a href="/company/resume/{{id}}/detail" class="btn btn-outline-success mb-3" style="width: 100%">{{isPass}}</a>
                         </div>
-                    </div>
-                </a>
-                <!-- <div class="d-flex justify-content-center">
-                    <a href="#" class="btn btn-outline-primary mb-3" style="width: 100%">제안하기</a>
-                </div> -->
+                    </li>
+                {{/resumeSkillList}}
             </li>
 
-            <li class="card col" style="width: 15rem; padding: 0px !important; border: 0">
-                <a href="/view/company/resumeDetail.html" style="text-decoration: none; color: black">
-                    <div style="width: 100%; height: 15rem; overflow: hidden">
-                        <img src="/images/person02.jpg" class="card-img-top" alt="이력서 사진" />
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title"><b>이력서 제목</b></h5>
-                        <h6><span>커리어</span>|<span>2년차, 2개 회사 근무</span></h6>
-                        <p class="card-text" style="
-                          display: -webkit-box;
-                          -webkit-line-clamp: 2;
-                          -webkit-box-orient: vertical;
-                          overflow: hidden;
-                          text-overflow: ellipsis;
-                        ">
-                            Some quick example text to build on the card title and make up
-                            the bulk of the card's content.
-                        </p>
-                        <div class="d-flex justify-content-start" style="
-                          display: -webkit-box;
-                          -webkit-line-clamp: 1;
-                          -webkit-box-orient: vertical;
-                          overflow: hidden;
-                          text-overflow: ellipsis;
-                        ">
-                            <button class="btn btn-outline-info btn-sm disabled"
-                                    style="padding: 0px 5px; margin-bottom: 0px !important">
-                                DEV
-                            </button>
-                            <button class="btn btn-outline-warning btn-sm disabled">
-                                JAVA
-                            </button>
-                            <button class="btn btn-outline-warning btn-sm disabled">
-                                Flutter
-                            </button>
-                            <button class="btn btn-outline-warning btn-sm disabled">
-                                JavaScript
-                            </button>
-                            <button class="btn btn-outline-warning btn-sm disabled">
-                                React
-                            </button>
-                        </div>
-                    </div>
-                </a>
-                <!-- <div class="d-flex justify-content-center">
-                    <a href="#" class="btn btn-outline-primary mb-3" style="width: 100%">제안하기</a>
-                </div> -->
-            </li>
-
-            <li class="card col" style="width: 15rem; padding: 0px !important; border: 0">
-                <a href="/view/company/resumeDetail.html" style="text-decoration: none; color: black">
-                    <div style="width: 100%; height: 15rem; overflow: hidden">
-                        <img src="/images/person03.jpg" class="card-img-top" alt="이력서 사진" />
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title"><b>이력서 제목</b></h5>
-                        <h6><span>커리어</span>|<span>2년차, 2개 회사 근무</span></h6>
-                        <p class="card-text" style="
-                          display: -webkit-box;
-                          -webkit-line-clamp: 2;
-                          -webkit-box-orient: vertical;
-                          overflow: hidden;
-                          text-overflow: ellipsis;
-                        ">
-                            Some quick example text to build on the card title and make up
-                            the bulk of the card's content.
-                        </p>
-                        <!-- 버튼 구림 -->
-                        <div class="d-flex justify-content-start" style="
-                          display: -webkit-box;
-                          -webkit-line-clamp: 1;
-                          -webkit-box-orient: vertical;
-                          overflow: hidden;
-                          text-overflow: ellipsis;
-                        ">
-                            <button class="btn btn-outline-info btn-sm disabled"
-                                    style="padding: 0px 5px; margin-bottom: 0px !important">
-                                DEV
-                            </button>
-                            <button class="btn btn-outline-warning btn-sm disabled">
-                                JAVA
-                            </button>
-                            <button class="btn btn-outline-warning btn-sm disabled">
-                                Flutter
-                            </button>
-                            <button class="btn btn-outline-warning btn-sm disabled">
-                                JavaScript
-                            </button>
-                            <button class="btn btn-outline-warning btn-sm disabled">
-                                React
-                            </button>
-                        </div>
-                    </div>
-                </a>
-                <!-- <div class="d-flex justify-content-center">
-                    <a href="#" class="btn btn-outline-primary mb-3" style="width: 100%">제안하기</a>
-                </div> -->
-            </li>
-
-            <li class="card col" style="width: 15rem; padding: 0px !important; border: 0">
-                <a href="/view/company/resumeDetail.html" style="text-decoration: none; color: black">
-                    <div style="width: 100%; height: 15rem; overflow: hidden">
-                        <img src="/images/person04.jpg" class="card-img-top" alt="이력서 사진" />
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title"><b>이력서 제목</b></h5>
-                        <h6><span>커리어</span>|<span>2년차, 2개 회사 근무</span></h6>
-                        <p class="card-text" style="
-                          display: -webkit-box;
-                          -webkit-line-clamp: 2;
-                          -webkit-box-orient: vertical;
-                          overflow: hidden;
-                          text-overflow: ellipsis;
-                        ">
-                            Some quick example text to build on the card title and make up
-                            the bulk of the card's content.
-                        </p>
-                        <!-- 버튼 구림 -->
-                        <div class="d-flex justify-content-start" style="
-                          display: -webkit-box;
-                          -webkit-line-clamp: 1;
-                          -webkit-box-orient: vertical;
-                          overflow: hidden;
-                          text-overflow: ellipsis;
-                        ">
-                            <button class="btn btn-outline-info btn-sm disabled"
-                                    style="padding: 0px 5px; margin-bottom: 0px !important">
-                                DEV
-                            </button>
-                            <button class="btn btn-outline-warning btn-sm disabled">
-                                JAVA
-                            </button>
-                            <button class="btn btn-outline-warning btn-sm disabled">
-                                Flutter
-                            </button>
-                            <button class="btn btn-outline-warning btn-sm disabled">
-                                JavaScript
-                            </button>
-                            <button class="btn btn-outline-warning btn-sm disabled">
-                                React
-                            </button>
-                        </div>
-                    </div>
-                </a>
-                <!-- <div class="d-flex justify-content-center">
-                    <a href="#" class="btn btn-outline-primary mb-3" style="width: 100%">제안하기</a>
-                </div> -->
-            </li>
-
-            <li class="card col" style="width: 15rem; padding: 0px !important; border: 0">
-                <a href="/view/company/resumeDetail.html" style="text-decoration: none; color: black">
-                    <div style="width: 100%; height: 15rem; overflow: hidden">
-                        <img src="/images/person05.jpg" class="card-img-top" alt="이력서 사진" />
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title"><b>이력서 제목</b></h5>
-                        <h6><span>커리어</span>|<span>2년차, 2개 회사 근무</span></h6>
-                        <p class="card-text" style="
-                          display: -webkit-box;
-                          -webkit-line-clamp: 2;
-                          -webkit-box-orient: vertical;
-                          overflow: hidden;
-                          text-overflow: ellipsis;
-                        ">
-                            Some quick example text to build on the card title and make up
-                            the bulk of the card's content.
-                        </p>
-                        <!-- 버튼 구림 -->
-                        <div class="d-flex justify-content-start" style="
-                          display: -webkit-box;
-                          -webkit-line-clamp: 1;
-                          -webkit-box-orient: vertical;
-                          overflow: hidden;
-                          text-overflow: ellipsis;
-                        ">
-                            <button class="btn btn-outline-info btn-sm disabled"
-                                    style="padding: 0px 5px; margin-bottom: 0px !important">
-                                DEV
-                            </button>
-                            <button class="btn btn-outline-warning btn-sm disabled">
-                                JAVA
-                            </button>
-                            <button class="btn btn-outline-warning btn-sm disabled">
-                                Flutter
-                            </button>
-                            <button class="btn btn-outline-warning btn-sm disabled">
-                                JavaScript
-                            </button>
-                            <button class="btn btn-outline-warning btn-sm disabled">
-                                React
-                            </button>
-                        </div>
-                    </div>
-                </a>
-                <!-- <div class="d-flex justify-content-center">
-                    <a href="#" class="btn btn-outline-primary mb-3" style="width: 100%">제안하기</a>
-                </div> -->
-            </li>
-
-            <li class="card col" style="width: 15rem; padding: 0px !important; border: 0">
-                <a href="/view/company/resumeDetail.html" style="text-decoration: none; color: black">
-                    <div style="width: 100%; height: 15rem; overflow: hidden">
-                        <img src="/images/person06.jpg" class="card-img-top" alt="이력서 사진" />
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title"><b>이력서 제목</b></h5>
-                        <h6><span>커리어</span>|<span>2년차, 2개 회사 근무</span></h6>
-                        <p class="card-text" style="
-                          display: -webkit-box;
-                          -webkit-line-clamp: 2;
-                          -webkit-box-orient: vertical;
-                          overflow: hidden;
-                          text-overflow: ellipsis;
-                        ">
-                            Some quick example text to build on the card title and make up
-                            the bulk of the card's content.
-                        </p>
-                        <!-- 버튼 구림 -->
-                        <div class="d-flex justify-content-start" style="
-                          display: -webkit-box;
-                          -webkit-line-clamp: 1;
-                          -webkit-box-orient: vertical;
-                          overflow: hidden;
-                          text-overflow: ellipsis;
-                        ">
-                            <button class="btn btn-outline-info btn-sm disabled"
-                                    style="padding: 0px 5px; margin-bottom: 0px !important">
-                                DEV
-                            </button>
-                            <button class="btn btn-outline-warning btn-sm disabled">
-                                JAVA
-                            </button>
-                            <button class="btn btn-outline-warning btn-sm disabled">
-                                Flutter
-                            </button>
-                            <button class="btn btn-outline-warning btn-sm disabled">
-                                JavaScript
-                            </button>
-                            <button class="btn btn-outline-warning btn-sm disabled">
-                                React
-                            </button>
-                        </div>
-                    </div>
-                </a>
-                <!-- <div class="d-flex justify-content-center">
-                    <a href="#" class="btn btn-outline-primary mb-3" style="width: 100%">제안하기</a>
-                </div> -->
-            </li>
-
-            <li class="card col" style="width: 15rem; padding: 0px !important; border: 0">
-                <a href="/view/company/resumeDetail.html" style="text-decoration: none; color: black">
-                    <div style="width: 100%; height: 15rem; overflow: hidden">
-                        <img src="/images/person07.png" class="card-img-top" alt="이력서 사진" />
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title"><b>이력서 제목</b></h5>
-                        <h6><span>커리어</span>|<span>2년차, 2개 회사 근무</span></h6>
-                        <p class="card-text" style="
-                          display: -webkit-box;
-                          -webkit-line-clamp: 2;
-                          -webkit-box-orient: vertical;
-                          overflow: hidden;
-                          text-overflow: ellipsis;
-                        ">
-                            Some quick example text to build on the card title and make up
-                            the bulk of the card's content.
-                        </p>
-                        <!-- 버튼 구림 -->
-                        <div class="d-flex justify-content-start" style="
-                          display: -webkit-box;
-                          -webkit-line-clamp: 1;
-                          -webkit-box-orient: vertical;
-                          overflow: hidden;
-                          text-overflow: ellipsis;
-                        ">
-                            <button class="btn btn-outline-info btn-sm disabled"
-                                    style="padding: 0px 5px; margin-bottom: 0px !important">
-                                DEV
-                            </button>
-                            <button class="btn btn-outline-warning btn-sm disabled">
-                                JAVA
-                            </button>
-                            <button class="btn btn-outline-warning btn-sm disabled">
-                                Flutter
-                            </button>
-                            <button class="btn btn-outline-warning btn-sm disabled">
-                                JavaScript
-                            </button>
-                            <button class="btn btn-outline-warning btn-sm disabled">
-                                React
-                            </button>
-                        </div>
-                    </div>
-                </a>
-                <!-- <div class="d-flex justify-content-center">
-                    <a href="#" class="btn btn-outline-primary mb-3" style="width: 100%">제안하기</a>
-                </div> -->
-            </li>
-
-            <li class="card col" style="width: 15rem; padding: 0px !important; border: 0">
-                <a href="/view/company/resumeDetail.html" style="text-decoration: none; color: black">
-                    <div style="width: 100%; height: 15rem; overflow: hidden">
-                        <img src="/images/person08.jpg" class="card-img-top" alt="이력서 사진" />
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title"><b>이력서 제목</b></h5>
-                        <h6><span>커리어</span>|<span>2년차, 2개 회사 근무</span></h6>
-                        <p class="card-text" style="
-                          display: -webkit-box;
-                          -webkit-line-clamp: 2;
-                          -webkit-box-orient: vertical;
-                          overflow: hidden;
-                          text-overflow: ellipsis;
-                        ">
-                            Some quick example text to build on the card title and make up
-                            the bulk of the card's content.
-                        </p>
-                        <!-- 버튼 구림 -->
-                        <div class="d-flex justify-content-start" style="
-                          display: -webkit-box;
-                          -webkit-line-clamp: 1;
-                          -webkit-box-orient: vertical;
-                          overflow: hidden;
-                          text-overflow: ellipsis;
-                        ">
-                            <button class="btn btn-outline-info btn-sm disabled"
-                                    style="padding: 0px 5px; margin-bottom: 0px !important">
-                                DEV
-                            </button>
-                            <button class="btn btn-outline-warning btn-sm disabled">
-                                JAVA
-                            </button>
-                            <button class="btn btn-outline-warning btn-sm disabled">
-                                Flutter
-                            </button>
-                            <button class="btn btn-outline-warning btn-sm disabled">
-                                JavaScript
-                            </button>
-                            <button class="btn btn-outline-warning btn-sm disabled">
-                                React
-                            </button>
-                        </div>
-                    </div>
-                </a>
-                <!-- <div class="d-flex justify-content-center">
-                    <a href="#" class="btn btn-outline-primary mb-3" style="width: 100%">제안하기</a>
-                </div> -->
-            </li>
         </ul>
         <div class="container mt-5 mb-5">
             <nav aria-label="Page navigation">

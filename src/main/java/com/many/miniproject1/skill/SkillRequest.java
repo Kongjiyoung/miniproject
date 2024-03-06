@@ -2,8 +2,6 @@ package com.many.miniproject1.skill;
 
 import lombok.Data;
 
-import java.sql.Timestamp;
-
 public class SkillRequest {
     @Data
     public static class SaveDTO {
