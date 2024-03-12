@@ -113,11 +113,8 @@ public class MainController {
 
     @PostMapping("/resume/detail/{id}/offer")
     public String companyResumeOffer(@PathVariable int id, @RequestParam("postChoice") Integer postChoice) {
-        System.out.println("======================" + postChoice);
         User sessionUser = (User) session.getAttribute("sessionUser");
-        System.out.println(sessionUser);
         Integer companyId = sessionUser.getId();
-        System.out.println(companyId);
 
         OfferRequest.SaveDTO saveDTO = new OfferRequest.SaveDTO();
         saveDTO.setResumeId(id);

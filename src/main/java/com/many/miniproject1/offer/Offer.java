@@ -21,4 +21,11 @@ public class Offer {
     private Integer personId;   // 구직자 ID
     //    private String content;
     private Timestamp createdAt;
+
+    public Offer(Integer resumeId, Integer postId, Integer companyId, Integer personId) {
+        this.resumeId = resumeId;
+        this.postId = postId;
+        this.companyId = companyId;
+        this.personId = personId;
+    }
 }

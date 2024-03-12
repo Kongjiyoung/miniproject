@@ -709,8 +709,8 @@ VALUES (1, 13, 22, 1, '합격');
 --offer_tb content 삭제, 더미 추가
 --post_id가 5개 뿐이라 3을 4번 넣음
 -- 1번 이력서
-INSERT INTO offer_tb(resume_id, post_id, company_id, person_id, created_at)
-VALUES (1, 1, 14, 1, now());
+-- INSERT INTO offer_tb(resume_id, post_id, company_id, person_id, created_at)
+-- VALUES (1, 1, 14, 1, now());
 INSERT INTO offer_tb(resume_id, post_id, company_id, person_id, created_at)
 VALUES (1, 3, 15, 1, now());
 INSERT INTO offer_tb(resume_id, post_id, company_id, person_id, created_at)
