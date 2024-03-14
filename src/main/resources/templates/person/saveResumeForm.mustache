@@ -7,14 +7,14 @@
                 <label style="margin-left: 95px;" for="title">*이력서를 작성해 주세요.</label>
                 <h1 class="mx-5 mb-3">
                     <input type="text" placeholder="이력서 제목을 입력하세요" style="width: 700px; border: none;"
-                           class="hs_input_title mx-5" name="title" value="" autofocus/>
+                           class="hs_input_title mx-5" name="title" value="" autofocus required/>
                 </h1>
                 <!-- 이미지 업로드 시작 -->
 
                 <div>
-                    <div class="upload d-flex justify-content-center mb-5">
+                    <div class="upload d-flex justify-content-center mb-1">
                         <div class=" d-flex d-flex justify-content-center align-items-center"
-                             style="width: 200px; height: 150px; border: 1px solid #e6e6e6; color: #e6e6e6;"
+                             style="width: 200px; height: 260px; border: 1px solid #e6e6e6; color: #e6e6e6;"
                              id="profilePreview"><b>사진을 등록해 주세요.</b>
                         </div>
                     </div>
@@ -83,11 +83,11 @@
                 <div class="container" style="width: 85%;">
                     <div class="row justify-content-center">
                         <div class="col-md-14 mx-auto">
-                            <div class="mt-5">
+                            <div class="mt-3">
                                 <h4>커리어</h4>
-                                <input type="text" name="career" class="w-100 opacity-50" value="" rows="10">
+                                <input type="text" name="career" class="form-control w-100 mb-5" value="" rows="10">
                                 <h4>간단 소개</h4>
-                                <input type="text" name="simpleIntroduce" class="w-100 opacity-50" value="" rows="10">
+                                <input type="text" name="simpleIntroduce" class="form-control w-100 mb-5" value="" rows="10">
                                 <h4>포트폴리오 주소</h4>
                                 <input type="text" class="form-control mt-2" id="" name="portfolio" value=""
                                        style="display: block;">
@@ -152,7 +152,7 @@
                         </div>
                         <div>
                             <h4>자기소개</h4>
-                            <textarea name="introduce" class="w-100 opacity-50" rows="10"
+                            <textarea name="introduce" class="w-100" rows="10"
                                       ></textarea>
 
                         </div>

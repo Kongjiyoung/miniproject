@@ -45,7 +45,13 @@
                           overflow: hidden;
                           text-overflow: ellipsis;
                         ">
-                                    <h6><span>{{#skill}}
+                                    <h6><span  style="
+                            display: -webkit-box;
+                            -webkit-line-clamp: 1;
+                            -webkit-box-orient: vertical;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                          ">{{#skill}}
                                         <button class="btn btn-outline-warning btn-sm disabled">
                                             {{.}}
                                         </button>{{/skill}}</span></h6>

@@ -10,11 +10,11 @@
                 <!-- 저장 버튼 아래로 위치 변경 -->
                 <!-- <button type="button" class="btn btn-dark" style="width:80px; height: 40px;">저장</button> -->
             </div>
-            <hr/>
+            <hr>
             <div>
-                <div class="container w-50 mt-5 text ">
+                <div class="container mt-5 text w-75">
 
-                    <form action="/person/info/update" method="post" enctype="multipart/form-data">
+                    <form  action="/person/info/update" method="post" enctype="multipart/form-data">
                         <input type="hidden" id="id" name="id" value="{{sessionUser.id}}">
                         <div class="px-5 mt-5">
                             <!-- 이미지 업로드 시작 -->
@@ -51,29 +51,24 @@
                             <!-- 이미지 업로드 끝 -->
 
                             <div class="input-group mb-3">
-                                <span
-                                        class="input-group-text init_color justify-content-center hs_span_size hs_span">이름</span>
+                                <span class="col-3 input-group-text init_color justify-content-center hs_span_size hs_span">이름</span>
                                 <input type="text" class="form-control" value="{{user.username}}" name="username" id="" disabled>
                             </div>
                             <div class="input-group mb-3">
-                                <span
-                                        class="input-group-text init_color justify-content-center hs_span_size hs_span">생년월일</span>
+                                <span class="col-3 input-group-text init_color justify-content-center hs_span_size hs_span">생년월일</span>
                                 <input type="date" class="form-control" value="{{user.birth}}" name="birth" id="" disabled>
                             </div>
                             <div class="input-group mb-3">
-                                <span
-                                        class="input-group-text init_color justify-content-center hs_span_size hs_span">연락처</span>
+                                <span class="col-3 input-group-text init_color justify-content-center hs_span_size hs_span">연락처</span>
                                 <input type="tel" class="form-control" maxlength="11" value="{{user.tel}}" name="tel"
                                        id="">
                             </div>
                             <div class="input-group mb-3">
-                                <span
-                                        class="input-group-text init_color justify-content-center hs_span_size hs_span">주소</span>
+                                <span class="col-3 input-group-text init_color justify-content-center hs_span_size hs_span">주소</span>
                                 <input type="text" class="form-control" value="{{user.address}}" name="address" id="">
                             </div>
                             <div class="input-group mb-3">
-                                <span
-                                        class="input-group-text init_color justify-content-center hs_span_size hs_span">이메일</span>
+                                <span class="col-3 input-group-text init_color justify-content-center hs_span_size hs_span">이메일</span>
                                 <input type="email" class="form-control" value="{{user.email}}" name="email" id=""
                                        disabled>
                             </div>
@@ -84,12 +79,12 @@
                             <br>
                             <div class="company-password">
                                 <div class="input-group mb-3">
-                                    <span class="input-group-text  justify-content-center hs_span_size init_color">비밀번호</span>
+                                    <span class="col-3 input-group-text  justify-content-center hs_span_size init_color">비밀번호</span>
                                     <input type="password" class="form-control" value="{{user.password}}" id="password"
                                            name="password" readonly>
                                 </div>
                                 <div class="input-group mb-3">
-                                    <span class="input-group-text  justify-content-center hs_span_size init_color">비밀번호 확인</span>
+                                    <span class="col-3 input-group-text  justify-content-center hs_span_size init_color">비밀번호 확인</span>
                                     <input type="password" class="form-control" name="checkPassword"
                                            id="checkPassword" placeholder="기존 비밀번호 입력">
                                 </div>
@@ -102,7 +97,7 @@
                                 </div>
                             </div>
                             <div class="input-group mb-3 mt-3">
-                                <span class="input-group-text  justify-content-center hs_span_size init_color">변경 비밀번호</span>
+                                <span class="col-3 input-group-text  justify-content-center hs_span_size init_color">변경 비밀번호</span>
                                 <input type="password" class="form-control" id="newPassword"
                                        name="newPassword">
                             </div>

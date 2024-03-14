@@ -7,19 +7,19 @@
         <h2>기업 회원가입</h2>
     </div>
     <div class="d-flex justify-content-center">
-        <div class="border rounded p-3 m-3 shadow" style="width: 300px;">
+        <div class="border rounded p-5 m-3 shadow" style="width: 400px;">
             <form action="/company/join" method="post" enctype="multipart/form-data">
                 <div class="form-group form-floating m-3 mx-auto">
                     <div class="px-5 mt-5">
                         <!-- 이미지 업로드 시작 -->
                         <div class="upload d-flex justify-content-center mb-5 flex-column align-items-center">
                             <div class="d-flex justify-content-center align-items-center"
-                                 style="width: 200px; height: 150px; border: 1px solid #E6E6E6; color: #E6E6E6;"
+                                 style="width: 200px; height: 260px; border: 1px solid #E6E6E6; color: #E6E6E6;"
                                  id="profilePreview">
                                 <b>사진을 등록해 주세요.</b>
                             </div>
                             <input type="file" id="imageUpload" name="profile"
-                                   class="real-upload mx-auto d-block mt-2 w-50 h-50" accept="image/*" required
+                                   class="real-upload mx-auto d-block mt-2 h-50" accept="image/*" required
                                    multiple>
                         </div>
                         <!-- 이미지 업로드 끝 -->
@@ -46,62 +46,96 @@
 
 
                 <div class="form-group form-floating m-3 mx-auto">
-                    <input type="text" name="companyName" class="form-control" id="companyName" value="hyeon" required>
+                    <input type="text" name="companyName" class="form-control" id="companyName" required>
                     <label for="companyName">회사명</label>
                 </div>
                 <div class="form-group form-floating m-3 mx-auto">
                     <input type="text" name="companyNum" maxlength="10" class="form-control" id="companyNum"
-                           value="12345679"
+
                            required>
                     <label for="companyNum">사업자 번호</label>
                 </div>
                 <div class="form-group form-floating m-3 mx-auto">
-                    <input type="text" name="username" class="form-control" id="username" value="hyeon" required>
+                    <input type="text" name="username" class="form-control" id="username" required>
                     <label for="username">담당자 이름</label>
                 </div>
                 <div class="form-group form-floating m-3 mx-auto">
-                    <input type="text" name="tel" class="form-control" id="tel" value="01030445555" required>
+                    <input type="text" name="tel" class="form-control" id="tel" required>
                     <label for="tel">전화번호</label>
                 </div>
                 <div class="form-group form-floating m-3 mx-auto">
-                    <input type="text" name="address" class="form-control" id="address" value="부산광역시" required>
+                    <input type="text" name="address" class="form-control" id="address" required>
                     <label for="address">회사 주소</label>
                 </div>
                 <div class="form-group form-floating m-3 mx-auto">
-                    <input type="email" name="email" class="form-control" id="email" value="hyeon@nate.com" required>
+                    <input type="email" name="email" class="form-control" id="email" required>
                     <label for="email">담당자 이메일</label>
                 </div>
 
                 <div class="company-password">
                     <div class="form-group form-floating m-3 mx-auto">
-                        <input type="password" name="password" class="form-control" id="password" value="1234" required>
+                        <input type="password" name="password" class="form-control" id="password" required>
                         <label for="password">비밀번호</label>
                     </div>
-                    <!--                    <div class="form-group form-floating m-3 mx-auto">-->
-                    <!--                        <input type="password" class="form-control" name="checkPassword" id="checkPassword" required>-->
-                    <!--                        <label for="checkPassword">비밀번호 확인</label>-->
-                    <!--                    </div>-->
+                    <div class="form-group form-floating m-3 mx-auto">
+                        <input type="password" class="form-control" name="checkPassword" id="checkPassword" required>
+                        <label for="checkPassword">비밀번호 확인</label>
+                    </div>
+<!--                    <div class="d-flex justify-content-center" style="width: 100%;">-->
+<!--                        <div style="width: 100%;">-->
+<!--                            <button type="button" class="btn btn-outline-warning" id="samePassword"-->
+<!--                                    style="width: 100%" >확인-->
+<!--                            </button>-->
+<!--                        </div>-->
+<!--                    </div>-->
+
                 </div>
                 <!-- 비밀번호 체크 확인 알림창 -->
-                <!--                <script>-->
-                <!--                    // form의 'submit' 이벤트-->
-                <!--                    document.querySelector('form').addEventListener('submit', function (e) {-->
-                <!--                        var password = document.querySelector('input[name="password"]').value;-->
-                <!--                        var confirmPassword = document.querySelector('input[name="checkPassword"]').value;-->
+                <script>
+                    let isPasswordCheck = false;
+                    // 서현+주호
+                    // $("#samePassword").click(()=>{
+                    //     let password = $("#password").val();
+                    //     let checkPassword = $("#checkPassword").val();
+                    //
+                    //     if(password === checkPassword){
+                    //         alert('비밀번호가 일치합니다.');
+                    //         isPasswordCheck = true;
+                    //     }else{
+                    //         alert('비밀번호가 일치하지 않습니다.');
+                    //         isPasswordCheck = false;
+                    //     }
+                    // });
+                    // let isJoin = false;
+                    // $("#joinBtn").click(()=>{
+                    //     let password = $("#password").val();
+                    //     let checkPassword = $("#checkPassword").val();
+                    //
+                    //     if(password === checkPassword){
+                    //         alert('회원가입을 축하드립니다.');
+                    //         isJoin = true;
+                    //         onsubmit(isJoin);
+                    //     }else{
+                    //         alert('비밀번호가 일치하지 않습니다.');
+                    //         isJoin = false;
+                    //     }
+                    // });
 
-                <!--                        // 기존 비밀번호와 확인 비밀번호가 일치하지 않으면-->
-                <!--                        if (password !== confirmPassword) {-->
-                <!--                            // 이벤트를 취소하고 경고 메시지를 출력합니다.-->
-                <!--                            e.preventDefault();-->
-                <!--                            alert('비밀번호가 일치하지 않습니다.');-->
-                <!--                        } else {-->
-                <!--                            // 비밀번호가 일치하면 메시지를 출력합니다.-->
-                <!--                            alert('비밀번호가 일치합니다. 회원가입이 가능합니다.');-->
-                <!--                        }-->
-                <!--                    });-->
-                <!--                </script>-->
+                    //     헤헤헤
+                    $('#checkPassword').keyup(function () { // 비밀번호 확인 필드가 변경될 때마다 비밀번호 확인을 수행합니다.
+                        let password = $("#password").val();
+                        let checkPassword = $(this).val();
+
+                        if (password === checkPassword) {
+                            $('#passwordMatchMessage').html('비밀번호가 일치합니다.').css('color', 'green');
+                        } else {
+                            $('#passwordMatchMessage').html('비밀번호가 일치하지 않습니다.').css('color', 'red');
+                        }
+                    });
+                </script>
+                <div id="passwordMatchMessage"></div>
                 <div class="d-flex justify-content-center">
-                    <button type="submit" href="#" class="btn btn-outline-primary mb-3 mt-4" style="width: 100%">가입하기
+                    <button type="submit" href="#" class="btn btn-outline-success mb-3 mt-4" style="width: 100%">가입하기
                     </button>
                 </div>
             </form>
