@@ -102,8 +102,8 @@ public class UserController {
     }
 
     @PostMapping("/person/join")
-    public String personJoin(UserRequest.JoinDTO requestDTO) {
-        MultipartFile profile = requestDTO.getProfile(); // 변경된 변수명으로 수정
+    public String personJoin(UserRequest.PersonJoinDTO reqDTO) {
+        MultipartFile profile = reqDTO.getProfile(); // 변경된 변수명으로 수정
 
         // 2. 파일저장 위치 설정해서 파일을 저장 (UUID 붙여서 롤링)
         String profileFilename = UUID.randomUUID() + "_" + profile.getOriginalFilename(); // 변경된 변수명으로 수정
@@ -119,7 +119,7 @@ public class UserController {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        userRepository.personSave(requestDTO, profileFilename);
+        userRepository.personSave(reqDTO.toEntity());
         return "redirect:/person/loginForm";
     }
 
