@@ -17,6 +17,9 @@ public class UserRequest {
         private String birth;
         private String tel;
 
+//        public User toEntity(){
+//            return User
+//        }
     }
 
     @Data

@@ -25,4 +25,20 @@ public class User {
     private String profile;
     private String birth;
     private Timestamp createdAt;
+
+    @Builder
+    public User(Integer id, String role, String email, String password, String username, String tel, String companyName, String address, String companyNum, String profile, String birth, Timestamp createdAt) {
+        this.id = id;
+        this.role = role;
+        this.email = email;
+        this.password = password;
+        this.username = username;
+        this.tel = tel;
+        this.companyName = companyName;
+        this.address = address;
+        this.companyNum = companyNum;
+        this.profile = profile;
+        this.birth = birth;
+        this.createdAt = createdAt;
+    }
 }
