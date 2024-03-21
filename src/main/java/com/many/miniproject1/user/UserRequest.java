@@ -26,16 +26,12 @@ public class UserRequest {
 
     @Data
     public static class CompanyUpdateDTO {
-        private Integer id;
         private MultipartFile profile;
         private String companyName;
-        private String companyNum;
         private String address;
-        private String email;
         private String password;
         private String username;
         private String tel;
-        private String newPassword;
     }
     @Data
     public static class PersonUpdateDTO {

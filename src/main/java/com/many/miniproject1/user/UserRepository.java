@@ -102,29 +102,14 @@ public class UserRepository {
     }
 
     @Transactional
-    public void companyUpdate(UserRequest.CompanyUpdateDTO requestDTO, int id, String profileFileName) {
-        String updateQuery = "update user_tb set profile=?, address=?, tel=?";
-        // Check if newPassword is not empty, then update the password
-        if (StringUtils.isNotEmpty(requestDTO.getNewPassword())) {
-            updateQuery += ", password=?";
-        }
-        updateQuery += " where id = ?";
-
-        Query query = em.createNativeQuery(updateQuery);
-        query.setParameter(1, profileFileName);
-        query.setParameter(2, requestDTO.getAddress());
-        query.setParameter(3, requestDTO.getTel());
-
-        // If newPassword is not empty, set it; otherwise, set the existing password
-        if (StringUtils.isNotEmpty(requestDTO.getNewPassword())) {
-            query.setParameter(4, requestDTO.getNewPassword());
-            query.setParameter(5, id);
-        } else {
-            query.setParameter(4, requestDTO.getPassword());
-            query.setParameter(5, id);
-        }
-
-        query.executeUpdate();
+    public void companyUpdate(int id, String profileFileName, String companyName, String address, String password, String username, String tel) {
+        User user = findById(id);
+        user.setProfile(profileFileName);
+        user.setCompanyName(companyName);
+        user.setAddress(address);
+        user.setPassword(password);
+        user.setUsername(username);
+        user.setTel(tel);
     }
 
 //    @Transactional
