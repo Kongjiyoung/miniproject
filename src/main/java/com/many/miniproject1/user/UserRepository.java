@@ -48,16 +48,9 @@ public class UserRepository {
     }
 
     @Transactional
-    public void personSave(UserRequest.JoinDTO requestDTO, String profileFileName) {
-        Query query = em.createNativeQuery("insert into user_tb(role, birth, email, password, username, tel, address, profile, created_at) values('person',?,?,?,?,?,?,?,now())");
-        query.setParameter(1, requestDTO.getBirth());
-        query.setParameter(2, requestDTO.getEmail());
-        query.setParameter(3, requestDTO.getPassword());
-        query.setParameter(4, requestDTO.getUsername());
-        query.setParameter(5, requestDTO.getTel());
-        query.setParameter(6, requestDTO.getAddress());
-        query.setParameter(7, profileFileName);
-        query.executeUpdate();
+    public User personSave(User user) {
+        em.persist(user);
+        return user;
     }
 
 

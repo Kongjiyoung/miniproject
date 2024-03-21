@@ -73,35 +73,61 @@
                 </div>
 
                 <div class="company-password">
-                    <div class="form-group form-floating m-3 mx-auto">
-                        <input type="password" name="password" class="form-control" id="password" value="1234" required>
-                        <label for="password">비밀번호</label>
-                    </div>
-                    <!--                    <div class="form-group form-floating m-3 mx-auto">-->
-                    <!--                        <input type="password" class="form-control" name="checkPassword" id="checkPassword" required>-->
-                    <!--                        <label for="checkPassword">비밀번호 확인</label>-->
-                    <!--                    </div>-->
-                </div>
-                <!-- 비밀번호 체크 확인 알림창 -->
-                <!--                <script>-->
-                <!--                    // form의 'submit' 이벤트-->
-                <!--                    document.querySelector('form').addEventListener('submit', function (e) {-->
-                <!--                        var password = document.querySelector('input[name="password"]').value;-->
-                <!--                        var confirmPassword = document.querySelector('input[name="checkPassword"]').value;-->
 
-                <!--                        // 기존 비밀번호와 확인 비밀번호가 일치하지 않으면-->
-                <!--                        if (password !== confirmPassword) {-->
-                <!--                            // 이벤트를 취소하고 경고 메시지를 출력합니다.-->
-                <!--                            e.preventDefault();-->
-                <!--                            alert('비밀번호가 일치하지 않습니다.');-->
-                <!--                        } else {-->
-                <!--                            // 비밀번호가 일치하면 메시지를 출력합니다.-->
-                <!--                            alert('비밀번호가 일치합니다. 회원가입이 가능합니다.');-->
-                <!--                        }-->
-                <!--                    });-->
-                <!--                </script>-->
+                    <div class="company-password">
+                        <div class="form-group form-floating m-3 mx-auto">
+                            <input type="password" name="password" class="form-control" id="password" value="1234" required>
+                            <label for="password">비밀번호</label>
+                        </div>
+                        <div class="form-group form-floating m-3 mx-auto">
+                            <input type="password" class="form-control" name="checkPassword" id="checkPassword" required>
+                            <label for="checkPassword">비밀번호 확인</label>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-center" style="width: 100%;">
+                        <div style="width: 100%;">
+                            <button type="button" class="btn btn-outline-success mb-3" id="samePassword"
+                                    style="width: 100%" >확인
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <script>
+                    let isPasswordCheck = false;
+
+                    $("#samePassword").click(()=>{
+                        let password = $("#password").val();
+                        let checkPassword = $("#checkPassword").val();
+
+                        if(password === checkPassword){
+                            alert('비밀번호가 일치합니다.');
+                            isPasswordCheck = true;
+                        }else{
+                            alert('비밀번호가 일치하지 않습니다.');
+                            isPasswordCheck = false;
+                        }
+                    });
+                    let isJoin = false;
+                    $("#joinBtn").click(()=>{
+                        let password = $("#password").val();
+                        let checkPassword = $("#checkPassword").val();
+
+                        if(password === checkPassword){
+                            alert('회원가입을 축하드립니다.');
+                            isJoin = true;
+                            onsubmit(isJoin);
+                        }else{
+                            alert('비밀번호가 일치하지 않습니다.');
+                            isJoin = false;
+                        }
+                    });
+
+                </script>
+
                 <div class="d-flex justify-content-center">
-                    <button type="submit" href="#" class="btn btn-outline-primary mb-3 mt-4" style="width: 100%">가입하기
+                    <button type="submit" href="#" class="btn btn-outline-primary mb-3 mt-4" id="joinBtn" style="width: 100%">가입하기
                     </button>
                 </div>
             </form>
