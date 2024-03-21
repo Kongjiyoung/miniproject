@@ -175,7 +175,7 @@ public class UserController {
     @PostMapping("/company/info/update")
     public String companyInfoUpdate(MultipartFile profile, String companyName, String address, String password, String username, String tel, HttpServletRequest request) {
         User sessionUser = (User) session.getAttribute("sessionUser");
-        // 프로필 저장
+        // 프로필 저장 파일로 따로 뺄 생각 생각 좀 해봄
         MultipartFile profile1 = profile;
         String profileFilename = UUID.randomUUID() + "_" + profile1.getOriginalFilename();
         Path profilePath = Paths.get("./images/" + profileFilename);
