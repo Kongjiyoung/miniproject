@@ -3,6 +3,7 @@ package com.many.miniproject1.user;
 import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Data;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.sql.Timestamp;
 
@@ -24,6 +25,7 @@ public class User {
     private String companyNum;
     private String profile;
     private String birth;
+    @CreationTimestamp
     private Timestamp createdAt;
 
     @Builder
