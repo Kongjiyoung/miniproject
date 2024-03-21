@@ -34,7 +34,7 @@ public class UserRequest {
         public User toEntity(){
             return User.builder()
                     .profile(profile.getOriginalFilename())
-                    .role(role)
+                    .role("person")
                     .email(email)
                     .password(password)
                     .username(username)
