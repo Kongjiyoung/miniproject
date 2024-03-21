@@ -136,16 +136,16 @@ public class UserController {
 //            return "error/400";
 //        }
 
-        User user = userRepository.findByEmailAndPassword(requestDTO);
+        User sessionUser = userRepository.personFindByEmailAndPassword(requestDTO.getEmail(), requestDTO.getPassword());
 
-        if (user == null) {
+        if (sessionUser == null) {
             return "/person/loginForm";
-        } else if (!user.getRole().equals("person")) {
+        } else if (!sessionUser.getRole().equals("person")) {
             return "error/404";
         } else { // 조회 됐음 (인증됨)
             Boolean isPerson;
             isPerson = true;
-            session.setAttribute("sessionUser", user);
+            session.setAttribute("sessionUser", sessionUser);
             session.setAttribute("isPerson", isPerson);
         }
         return "redirect:/person/main";
