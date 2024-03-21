@@ -21,15 +21,8 @@ public class UserRepository {
     }
 
     public User findById(int id) {
-        Query query = em.createNativeQuery("select * from user_tb where id=?", User.class);
-        query.setParameter(1, id);
-
-        try {
-            User user = (User) query.getSingleResult();
-            return user;
-        } catch (Exception e) {
-            return null;
-        }
+        User user = em.find(User.class,id);
+        return user;
     }
 
     @Transactional
