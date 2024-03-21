@@ -173,15 +173,11 @@ public class UserController {
     }
 
     @PostMapping("/company/info/update")
-    public String companyInfoUpdate(UserRequest.CompanyUpdateDTO requestDTO, HttpServletRequest request) {
+    public String companyInfoUpdate(MultipartFile profile, String companyName, String address, String password, String username, String tel, HttpServletRequest request) {
         User sessionUser = (User) session.getAttribute("sessionUser");
-        if (sessionUser == null) {
-            return "redirect:/loginForm";
-        }
-
         // 프로필 저장
-        MultipartFile profile = requestDTO.getProfile();
-        String profileFilename = UUID.randomUUID() + "_" + profile.getOriginalFilename();
+        MultipartFile profile1 = profile;
+        String profileFilename = UUID.randomUUID() + "_" + profile1.getOriginalFilename();
         Path profilePath = Paths.get("./images/" + profileFilename);
         try {
             Files.write(profilePath, profile.getBytes());
@@ -192,15 +188,10 @@ public class UserController {
         User user = userRepository.findById(sessionUser.getId());
         request.setAttribute("user", user);
 
-        // 새 비밀번호가 비어있으면 기존 비밀번호를 사용하도록 설정
-        if (StringUtils.isEmpty(requestDTO.getNewPassword())) {
-            requestDTO.setNewPassword(user.getPassword());
-        }
 
-        // requestDTO.setProfilePath(profilePath);
-        userRepository.companyUpdate(requestDTO, sessionUser.getId(), profileFilename);
+        userRepository.companyUpdate(sessionUser.getId(), profileFilename, companyName, address, password, username, tel);
 
-        System.out.println(requestDTO);
+        //System.out.println(requestDTO);
         return "redirect:/company/info";
     }
 

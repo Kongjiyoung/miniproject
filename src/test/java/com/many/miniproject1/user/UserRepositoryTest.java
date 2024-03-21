@@ -26,4 +26,22 @@ public class UserRepositoryTest {
         // then
         Assertions.assertThat(user.getCompanyName()).isEqualTo("예이");
     }
+
+    @Test
+    public void companyUpdate_test(){
+        // given
+        int id =14;
+        String profileFilename = "12121212";
+        String companyName = "네이버";
+        String address = "부산 우리집";
+        String password = "123123";
+        String username = "인사담당자";
+        String tel = "01012345678";
+
+        // when
+        User user = userRepository.companyUpdate(id, profileFilename, companyName, address, password, username, tel);
+
+        // then
+        Assertions.assertThat(userRepository.findById(id).getCompanyName()).isEqualTo("sk");
+    }
 }

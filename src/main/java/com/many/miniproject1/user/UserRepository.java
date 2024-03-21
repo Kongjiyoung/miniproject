@@ -102,7 +102,7 @@ public class UserRepository {
     }
 
     @Transactional
-    public void companyUpdate(int id, String profileFileName, String companyName, String address, String password, String username, String tel) {
+    public User companyUpdate(int id, String profileFileName, String companyName, String address, String password, String username, String tel) {
         User user = findById(id);
         user.setProfile(profileFileName);
         user.setCompanyName(companyName);
@@ -110,6 +110,8 @@ public class UserRepository {
         user.setPassword(password);
         user.setUsername(username);
         user.setTel(tel);
+
+        return user;
     }
 
 //    @Transactional
