@@ -16,11 +16,38 @@ public class UserRequest {
         private String address;
         private String birth;
         private String tel;
-
-//        public User toEntity(){
-//            return User
-//        }
     }
+
+    @Data
+    public static class PersonJoinDTO{
+        private MultipartFile profile; // 사용자가 업로드한 파일
+        private String role;
+        private String email;
+        private String password;
+        private String username;
+        private String companyName;
+        private String companyNum;
+        private String address;
+        private String birth;
+        private String tel;
+
+        public User toEntity(){
+            return User.builder()
+                    .profile(profile.getName())
+                    .role(role)
+                    .email(email)
+                    .password(password)
+                    .username(username)
+                    .companyName(companyName)
+                    .companyNum(companyNum)
+                    .address(address)
+                    .birth(birth)
+                    .tel(tel)
+                    .build();
+        }
+    }
+
+
 
     @Data
     public class SaveDTO {
