@@ -58,5 +58,10 @@ public class UserRequest {
         private String password;
     }
 
-
+    @Data
+    public static class PersonLoginDTO {
+        private String role = "person";
+        private String email;
+        private String password;
+    }
 }
