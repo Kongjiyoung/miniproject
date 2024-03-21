@@ -81,6 +81,14 @@ public class UserRepository {
         }
     }
 
+    public User personFindByEmailAndPassword(String email, String password) {
+        Query query =
+                em.createQuery("select u from User u where u.email = :email and u.password = :password", User.class);
+        query.setParameter("email", email);
+        query.setParameter("password", password);
+        return (User) query.getSingleResult();
+    }
+
     @Transactional
     public void personUpdate(UserRequest.PersonUpdateDTO requestDTO, int id, String profileFileName) {
         String updateQuery = "update user_tb set profile=?, tel=?, address=?";
