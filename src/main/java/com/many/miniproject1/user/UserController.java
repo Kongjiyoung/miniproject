@@ -130,7 +130,7 @@ public class UserController {
     }
 
     @PostMapping("/person/login")
-    public String personLogin(UserRequest.LoginDTO requestDTO) {
+    public String personLogin(UserRequest.PersonLoginDTO requestDTO) {
         System.out.println(requestDTO);
 //        if (requestDTO.getEmail().length() < 3) {
 //            return "error/400";
