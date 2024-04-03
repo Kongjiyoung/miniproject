@@ -41,22 +41,18 @@ public class ResumeController{
     @GetMapping("/person/resume")
     public String personResumeForm(HttpServletRequest request) {
         User sessionUser = (User) session.getAttribute("sessionUser");
+        if (sessionUser == null) {
+            return "redirect:/person/loginForm";
+        }
         List<ResumeResponse.DetailDTO> resumeList = resumeRepository.findresume(sessionUser.getId());
-        System.out.println(resumeList.size());
 
         ArrayList<ResumeResponse.DetailSkillDTO> resumeSkillList = new ArrayList<>();
         for (int i = 0; i < resumeList.size(); i++) {
             List<String> skills = skillRepository.findByResumeId(resumeList.get(i).getId());
-            System.out.println(skills);
             ResumeResponse.DetailDTO resume = resumeList.get(i);
-            System.out.println(resume);
-
             resumeSkillList.add(new ResumeResponse.DetailSkillDTO(resume, skills));
-            System.out.println(resumeSkillList.get(i));
         }
-
         request.setAttribute("resumeSkillList", resumeSkillList);
-
         return "person/resumes";
     }
 
